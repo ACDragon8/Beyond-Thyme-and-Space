@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://db16vxma3c8y4"]
+
+[ext_resource type="PackedScene" uid="uid://bv43xyjlmb7vo" path="res://Prefabs/target.tscn" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://djfgx3sjr0a1y" path="res://Scenes/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://buh4pxfco3nvc" path="res://Prefabs/player.tscn" id="2_jjvhh"]
+[ext_resource type="Script" uid="uid://b26yg4k826shb" path="res://Scripts/player.gd" id="3_kry3j"]
+[ext_resource type="AudioStream" uid="uid://c26nhigmecrd1" path="res://Sound/recipe 1_test1.ogg" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://cl22a63fyafcy" path="res://Scripts/audio_stream_player_2d.gd" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://sa7igaoxnqql" path="res://Assets/TNS_cloudybento.png" id="8_344ge"]
+[ext_resource type="Script" uid="uid://dqibdei2dbi2s" path="res://Scenes/text_edit.gd" id="9_ynf5e"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_kry3j")
+
+[node name="CuttingBoard" type="Sprite2D" parent="."]
+position = Vector2(573.816, 320.4)
+scale = Vector2(0.626172, 0.626172)
+texture = ExtResource("1_jjvhh")
+
+[node name="Target" parent="." instance=ExtResource("1_8gbba")]
+position = Vector2(331, 174)
+
+[node name="Target2" parent="." instance=ExtResource("1_8gbba")]
+position = Vector2(1040, 167)
+
+[node name="Target3" parent="." instance=ExtResource("1_8gbba")]
+position = Vector2(535, 174)
+
+[node name="Target4" parent="." instance=ExtResource("1_8gbba")]
+position = Vector2(739, 172)
+
+[node name="Player" parent="." instance=ExtResource("2_jjvhh")]
+position = Vector2(146, 170)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_kry3j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6bp64")
+script = ExtResource("6_21xkr")
+
+[node name="TnsCloudybento" type="Sprite2D" parent="."]
+position = Vector2(527, 535)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("8_344ge")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 282.0
+offset_top = 250.0
+offset_right = 444.0
+offset_bottom = 296.0
+text = "Space to Start
+"
+script = ExtResource("9_ynf5e")
+
+[connection signal="GameStart" from="." to="Player" method="_on_main_game_start"]
+[connection signal="GameStart" from="." to="AudioStreamPlayer2D" method="_on_main_game_start"]
+[connection signal="GameStart" from="." to="TextEdit" method="_on_main_game_start"]
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="area_exited" from="Player" to="Player" method="_on_area_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c26nhigmecrd1"
+path="res://.godot/imported/recipe 1_test1.ogg-c3660a1f1ed001a0ca1c8d2eeb49b3cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound/recipe 1_test1.ogg"
+dest_files=["res://.godot/imported/recipe 1_test1.ogg-c3660a1f1ed001a0ca1c8d2eeb49b3cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
