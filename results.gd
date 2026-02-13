@@ -3,17 +3,18 @@ extends Node2D
 signal AddIngredient
 
 var ingredients = {}
-var num_boxes = 7
+var num_boxes = 4
+var selected_ingredients #list of length num_boxes representing whether the ingredient in the box is selected
 
 const IngredientButton: PackedScene = preload("res://Prefabs/ingredient_button.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_game()
-	#new_ingredient("chicken")
+	selected_ingredients = []
 	var ings = ["Chicken", "Onions", "Rice", "Lettuce", "Carrots", "Beef", "Pork"]
 	for i in range(num_boxes):
-		add_box(ings[i])
+		add_box(ings[i],i)
 	update_counter()
 	
 
@@ -24,7 +25,7 @@ func _process(_delta):
 	
 
 
-func update_counter():
+func update_counter(): # updates the ingredients textbox
 	var s = ""
 	for i in ingredients:
 		s = s + "{0}: {1}\n".format([i, str(ingredients[i])])
@@ -32,21 +33,46 @@ func update_counter():
 	save_game()
 
 
-func new_ingredient(ing):
+func new_ingredient(ing): #creates a new ingredient in the ingredient dictionary
 	ingredients[ing] = 0
 
 
-func add_ingredient(ing):
+func add_ingredient(ing): #adds 1 to the ingredient in ingredient dict, creates it if it does not exist
 	if not ing in ingredients:
 		new_ingredient(ing)
 	ingredients[ing] += 1
+	update_counter()
 	
-func add_box(ingr):
+func add_many_ingredient(ing, val):
+	if not ing in ingredients:
+		new_ingredient(ing)
+	ingredients[ing] += val
+	update_counter()
+
+func _on_collect_pressed():
+	print(selected_ingredients)
+	for i in selected_ingredients:
+		if i != "":
+			print("added "+ i)
+			add_many_ingredient(i,$"Quantity Display".quantity)
+	update_counter()
+
+func _on_selection_update(ing, index, b):
+	print("update")
+	if b:
+		selected_ingredients[index] = ing
+	else:
+		selected_ingredients[index] = ""
+	
+func add_box(ingr,index): #creates an IngredientButton for adding ingredients
 	var box = IngredientButton.instantiate()
+	box.set_index(index)
 	box.set_ingredient(ingr)
-	box.size *= 0.5
-	#box.connect("AddIngredient", add_ingredient(ingr))
+	box.ToggleSelected.connect(_on_selection_update)
 	$GridContainer.add_child(box)
+	selected_ingredients.append("")
+	
+	
 	
 func save_game():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -65,3 +91,13 @@ func load_game():
 	ingredients = json.data
 	for i in ingredients:
 		ingredients[i] = int(ingredients[i])
+
+#debug function
+func _on_reset_pressed():
+	ingredients = {}
+	save_game()
+	update_counter()
+
+
+
+	
