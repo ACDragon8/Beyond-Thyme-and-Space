@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://db16vxma3c8y4"]
+[gd_scene load_steps=11 format=3 uid="uid://db16vxma3c8y4"]
 
 [ext_resource type="PackedScene" uid="uid://bv43xyjlmb7vo" path="res://Prefabs/target.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_jjvhh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cl22a63fyafcy" path="res://Scripts/audio_stream_player_2d.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://sa7igaoxnqql" path="res://Assets/TNS_cloudybento.png" id="8_344ge"]
 [ext_resource type="Script" uid="uid://dqibdei2dbi2s" path="res://Scenes/text_edit.gd" id="9_ynf5e"]
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="10_hptm8"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_kry3j")
@@ -52,6 +53,10 @@ offset_bottom = 296.0
 text = "Space to Start
 "
 script = ExtResource("9_ynf5e")
+
+[node name="RhythmNotifier" type="Node" parent="."]
+script = ExtResource("10_hptm8")
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [connection signal="GameStart" from="." to="Player" method="_on_main_game_start"]
 [connection signal="GameStart" from="." to="AudioStreamPlayer2D" method="_on_main_game_start"]
