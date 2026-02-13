@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://boik3afvmhl7"]
+
+[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_ud23g"]
+
+[node name="Gathering" type="Node2D"]
+
+[node name="CuttingBoard" type="Sprite2D" parent="."]
+position = Vector2(915, 513)
+texture = ExtResource("1_ud23g")

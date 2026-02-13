@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjw34vfma4kk4"]
+
+[ext_resource type="Texture2D" uid="uid://djoh4yfd734w" path="res://Assets/icon.svg" id="1_d2c7c"]
+[ext_resource type="Script" uid="uid://dbwq10xaeb1gg" path="res://Scripts/ingredient_button.gd" id="2_dcbm4"]
+
+[node name="Ingredient Button" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_d2c7c")
+script = ExtResource("2_dcbm4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

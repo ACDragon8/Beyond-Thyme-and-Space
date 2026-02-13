@@ -14,8 +14,8 @@
 script = ExtResource("1_kry3j")
 
 [node name="CuttingBoard" type="Sprite2D" parent="."]
-position = Vector2(573.816, 320.4)
-scale = Vector2(0.626172, 0.626172)
+position = Vector2(961.277, 538.4)
+scale = Vector2(1.05195, 1.05195)
 texture = ExtResource("1_jjvhh")
 
 [node name="Target" parent="." instance=ExtResource("1_8gbba")]
