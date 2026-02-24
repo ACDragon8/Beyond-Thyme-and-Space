@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0baqcue62rub"]
+
+[ext_resource type="Texture2D" uid="uid://cwknw3gskoqcx" path="res://Assets/main_menu_bg_placeholder.png" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="MainMenuBgPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(961, 541)
+texture = ExtResource("1_28flt")
