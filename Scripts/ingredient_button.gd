@@ -1,14 +1,13 @@
 extends TextureButton
 
-signal ToggleSelected(ing, )
+signal ToggleSelected(ing)
 
 var ingredient
-var selected
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	selected = false
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,11 +19,10 @@ func set_ingredient(ing):
 
 func _on_pressed():
 	if ingredient != null:
-		selected = not selected
 		ToggleSelected.emit(ingredient)
-		print(ingredient + ": " + str(selected))
+		pass
 	else:
-		print(ingredient)
+		print("Error: no ingredient selected")
 		
 	#if ingredient != "":
 		#AddIngredient.emit(ingredient) # Replace with function body.

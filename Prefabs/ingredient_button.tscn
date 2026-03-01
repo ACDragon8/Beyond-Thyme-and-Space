@@ -1,37 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjw34vfma4kk4"]
+[gd_scene load_steps=11 format=3 uid="uid://bjw34vfma4kk4"]
 
 [ext_resource type="Texture2D" uid="uid://djoh4yfd734w" path="res://Assets/icon.svg" id="1_d2c7c"]
 [ext_resource type="Script" uid="uid://svwbn20eqpxr" path="res://Scripts/ingredient_display.gd" id="1_kh7s4"]
 [ext_resource type="Script" uid="uid://dbwq10xaeb1gg" path="res://Scripts/ingredient_button.gd" id="2_dcbm4"]
+[ext_resource type="Texture2D" uid="uid://boc47www224ec" path="res://Assets/Assets - UI/select-outline.png" id="2_npfes"]
+[ext_resource type="Texture2D" uid="uid://dxkmykedc581s" path="res://Assets/Assets - UI/select-bg.png" id="3_npfes"]
+[ext_resource type="Texture2D" uid="uid://5q4a8ny11qxd" path="res://Assets/Assets - Ingredient/cabbage/cabbage1.png" id="5_dx872"]
+[ext_resource type="Texture2D" uid="uid://bu0v7vfq7rsp7" path="res://Assets/Assets - Ingredient/chicken/chicken1.png" id="6_n7x7r"]
+[ext_resource type="Texture2D" uid="uid://e7kofefykk6l" path="res://Assets/Assets - Ingredient/rice/rice1.png" id="7_k7ixi"]
+[ext_resource type="Texture2D" uid="uid://c8o7wu3s3n08r" path="res://Assets/Assets - Ingredient/rice/rice3.png" id="9_gveiv"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_n7x7r"]
+frames = 6
+pause = true
+speed_scale = 0.0
+frame_0/texture = ExtResource("6_n7x7r")
+frame_1/texture = ExtResource("5_dx872")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_k7ixi")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("1_d2c7c")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("1_d2c7c")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("9_gveiv")
+frame_5/duration = 1.0
 
 [node name="Ingredient Button" type="Container"]
 z_index = 3
-custom_minimum_size = Vector2(144, 144)
-anchors_preset = -1
-anchor_left = 0.005
-anchor_top = 0.014
-anchor_right = 0.15
-anchor_bottom = 0.267
-offset_left = -9.6
-offset_top = -15.12
-offset_right = -144.0
-offset_bottom = -144.36
 scale = Vector2(2, 2)
+size_flags_horizontal = 2
+size_flags_vertical = 2
 script = ExtResource("1_kh7s4")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 show_behind_parent = true
 z_index = -1
-custom_minimum_size = Vector2(144, 144)
 layout_mode = 2
+texture = ExtResource("2_npfes")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 action_mode = 0
-texture_normal = ExtResource("1_d2c7c")
+texture_normal = ExtResource("3_npfes")
 script = ExtResource("2_dcbm4")
 
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[node name="Container" type="Container" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.029
+anchor_right = 0.218
+anchor_bottom = 0.193
+offset_left = -18.6
+offset_top = -17.4
+offset_right = -130.8
+offset_bottom = -115.8
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(-50, 0)
+
+[node name="Ingredient" type="TextureRect" parent="TextureButton/Container"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+texture = SubResource("AnimatedTexture_n7x7r")
+
+[connection signal="display" from="." to="TextureButton/Container/Ingredient" method="_on_ingredient_button_display"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bv43xyjlmb7vo" path="res://Prefabs/target.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_jjvhh"]
-[ext_resource type="Script" uid="uid://djfgx3sjr0a1y" path="res://Scenes/main.gd" id="1_kry3j"]
+[ext_resource type="Script" uid="uid://djfgx3sjr0a1y" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://buh4pxfco3nvc" path="res://Prefabs/player.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://b26yg4k826shb" path="res://Scripts/player.gd" id="3_kry3j"]
 [ext_resource type="AudioStream" uid="uid://c26nhigmecrd1" path="res://Sound/recipe 1_test1.ogg" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://cl22a63fyafcy" path="res://Scripts/audio_stream_player_2d.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://sa7igaoxnqql" path="res://Assets/TNS_cloudybento.png" id="8_344ge"]
-[ext_resource type="Script" uid="uid://dqibdei2dbi2s" path="res://Scenes/text_edit.gd" id="9_ynf5e"]
+[ext_resource type="Script" uid="uid://dqibdei2dbi2s" path="res://Scripts/text_edit.gd" id="9_ynf5e"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_kry3j")

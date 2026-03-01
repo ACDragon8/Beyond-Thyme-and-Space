@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blhse1hoxeuw3"
+path="res://.godot/imported/ARTG171_sfx_confirm.wav-aef3a626f1255e2d4153d221f24af412.sample"
+
+[deps]
+
+source_file="res://Assets/Assets - Sound Effects/ARTG171_sfx_confirm.wav"
+dest_files=["res://.godot/imported/ARTG171_sfx_confirm.wav-aef3a626f1255e2d4153d221f24af412.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

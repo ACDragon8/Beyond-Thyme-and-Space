@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://s8chbck0j15j"
+path="res://.godot/imported/recipe 1 final.ogg-37a2c3543fbf739d3144f9e21c15b4bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Assets - Music/recipe 1 final.ogg"
+dest_files=["res://.godot/imported/recipe 1 final.ogg-37a2c3543fbf739d3144f9e21c15b4bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
