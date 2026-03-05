@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=5 format=3 uid="uid://cq48ea8ab1xam"]
+
+[ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
+[ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
+[ext_resource type="Script" uid="uid://dyodgwig82klo" path="res://Scripts/rhythm/hitManager.gd" id="3_n64c0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ckw0"]
 
@@ -15,8 +19,10 @@ position = Vector2(150, 540)
 scale = Vector2(20, 800)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
-[node name="timeline" type="Node2D" parent="."]
+[node name="timeline" type="Node2D" parent="." node_paths=PackedStringArray("listenerPos")]
 position = Vector2(150, 540)
+script = ExtResource("1_gt65o")
+listenerPos = NodePath("../center")
 
 [node name="measure bars" type="Node2D" parent="timeline"]
 
@@ -170,8 +176,11 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="beatManager" type="Node2D" parent="timeline"]
+script = ExtResource("2_43wq1")
 
-[node name="hitManager" type="Node2D" parent="timeline"]
+[node name="hitManager" type="Node2D" parent="timeline" node_paths=PackedStringArray("txt")]
+script = ExtResource("3_n64c0")
+txt = NodePath("../../feedback")
 
 [node name="feedback" type="RichTextLabel" parent="."]
 offset_left = 217.0

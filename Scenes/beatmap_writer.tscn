@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6136mmv4iwu6"]
+
+[ext_resource type="Script" uid="uid://bbls8p1qpxn2a" path="res://Scripts/rhythm/writer.gd" id="1_uber1"]
+
+[node name="BeatmapWriter" type="Node2D"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.strings.bank", "res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.bank"]
+
+[node name="writer" type="Node2D" parent="."]
+script = ExtResource("1_uber1")
