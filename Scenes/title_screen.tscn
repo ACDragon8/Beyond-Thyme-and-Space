@@ -1,25 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://buelqy73uc1kd"]
+[gd_scene load_steps=6 format=3 uid="uid://buelqy73uc1kd"]
 
 [ext_resource type="Texture2D" uid="uid://utjl76hucqvp" path="res://Assets/title_screen_bg_placeholder.png" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://bcbgwgvaliagv" path="res://Assets/start_game_btn_placeholder.png" id="2_p3fck"]
 [ext_resource type="Texture2D" uid="uid://5dpoq2gjo7af" path="res://Assets/credits_btn_placeholder.png" id="3_4gxqj"]
+[ext_resource type="Script" uid="uid://bc7rnimk5fkj1" path="res://Scripts/start_game_btn.gd" id="3_twnyg"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_twnyg"]
 
 [node name="TitleScreen" type="Node2D"]
 
 [node name="TitleScreenBgPlaceholder" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+z_as_relative = false
 position = Vector2(961, 542)
 texture = ExtResource("1_klylv")
 
 [node name="StartGameBtn" type="TextureButton" parent="."]
+top_level = true
+z_as_relative = false
 offset_left = 626.0
 offset_top = 698.0
 offset_right = 1285.0
 offset_bottom = 871.0
+button_group = SubResource("ButtonGroup_twnyg")
 texture_normal = ExtResource("2_p3fck")
+texture_pressed = ExtResource("2_p3fck")
+texture_hover = ExtResource("2_p3fck")
+texture_disabled = ExtResource("2_p3fck")
+texture_focused = ExtResource("2_p3fck")
+script = ExtResource("3_twnyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="StartGameBtn"]
+position = Vector2(330, 85)
+texture = ExtResource("2_p3fck")
 
 [node name="CreditsBtn" type="TextureButton" parent="."]
+top_level = true
+visibility_layer = 1048575
+z_as_relative = false
 offset_left = 712.0
 offset_top = 913.0
 offset_right = 1192.0
 offset_bottom = 1039.0
 texture_normal = ExtResource("3_4gxqj")
+
+[connection signal="pressed" from="StartGameBtn" to="StartGameBtn" method="_on_pressed"]
