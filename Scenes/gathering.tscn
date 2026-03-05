@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw604xggq3fwy"]
+[gd_scene load_steps=6 format=3 uid="uid://cevv0ti8tkw7q"]
 
-[ext_resource type="Script" uid="uid://dhjy2y0kps2bw" path="res://Scripts/results.gd" id="1_tin2j"]
+[ext_resource type="Script" path="res://Scripts/results.gd" id="1_tin2j"]
 [ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_ud23g"]
-[ext_resource type="Script" uid="uid://d0ol1d7ou77rb" path="res://Scripts/collect.gd" id="3_eji51"]
-[ext_resource type="Script" uid="uid://bovki547xd8gv" path="res://Scripts/quantity_display.gd" id="4_m2mup"]
+[ext_resource type="Script" path="res://Scripts/collect.gd" id="3_eji51"]
+[ext_resource type="Script" path="res://Scripts/quantity_display.gd" id="4_m2mup"]
 
 [sub_resource type="Theme" id="Theme_mabgl"]
 default_font_size = 31
 
-[node name="Results" type="Node2D"]
+[node name="Gathering" type="Node2D"]
 script = ExtResource("1_tin2j")
 
 [node name="CuttingBoard" type="Sprite2D" parent="."]
