@@ -2,7 +2,7 @@ extends Node2D
 var event: FmodEvent = null
 var beatStr: String = ""
 var currTime: int = 0
-var currSong = "recipe 1"
+var currSong = "recipe 2"
 var currFile = "res://assets/assets - music/beatmaps/"+currSong+".txt"
 
 # Called when the node enters the scene tree for the first time.

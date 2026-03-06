@@ -12,7 +12,7 @@ var beatScene = preload("res://scenes/beat.tscn")
 var holdScene = preload("res://scenes/hold.tscn")
 # can be swapped out to swap songs
 # probably should make this a reference to a global or some other manager later
-var currSong = "recipe 1"
+var currSong = "recipe 2"
 
 # reads and parses beatmap text file into beatList
 func _init():

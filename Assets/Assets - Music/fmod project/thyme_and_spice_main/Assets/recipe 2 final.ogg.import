@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cp4xaincff4gf"
+path="res://.godot/imported/recipe 2 final.ogg-ffaa34bf3511d9d6f2c325205056a85e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Assets/recipe 2 final.ogg"
+dest_files=["res://.godot/imported/recipe 2 final.ogg-ffaa34bf3511d9d6f2c325205056a85e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

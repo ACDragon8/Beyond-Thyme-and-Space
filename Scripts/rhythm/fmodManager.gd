@@ -3,7 +3,7 @@ extends Node2D
 # stores currently playing fmod event/song
 var event: FmodEvent = null
 # can be swapped out to swap songs
-var currSong: String = "recipe 1"
+var currSong: String = "recipe 2"
 # current bpm, beats per measure (can change throughout song)
 var bpm: float = 0
 var timeUpper: int = 0;
