@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://tu5gkqku6pmo"]
 
 [ext_resource type="Texture2D" uid="uid://cwknw3gskoqcx" path="res://Assets/main_menu_bg_placeholder.png" id="1_r18jl"]
-[ext_resource type="Script" uid="uid://b5svhswyyia65" path="res://Scenes/credits_text.gd" id="2_gryuy"]
+[ext_resource type="Script" uid="uid://b5svhswyyia65" path="res://Scripts/credits_text.gd" id="2_gryuy"]
 
 [node name="Credits" type="Node2D"]
 

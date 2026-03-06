@@ -1,9 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0baqcue62rub"]
+[gd_scene load_steps=7 format=3 uid="uid://d0baqcue62rub"]
 
 [ext_resource type="Texture2D" uid="uid://cwknw3gskoqcx" path="res://Assets/main_menu_bg_placeholder.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dt2mutodtpdey" path="res://Assets/collect_ingredients_btn_placeholder.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://c3yhbrrcmqh0j" path="res://Assets/cook_item_btn_placeholder.png" id="3_ce3w2"]
+[ext_resource type="Script" uid="uid://bkpihc35msiet" path="res://Scripts/collect_ingredients_btn.gd" id="3_n45e2"]
+[ext_resource type="Script" uid="uid://brcxlh3swbaky" path="res://Scripts/cook_item_btn.gd" id="5_n45e2"]
+[ext_resource type="Texture2D" uid="uid://bik0pw4rlsc1k" path="res://Assets/kitchen_tasks_label_placeholder.png" id="6_opfnp"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="MainMenuBgPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(961, 541)
+position = Vector2(960, 540)
 texture = ExtResource("1_28flt")
+
+[node name="CollectIngredientsBtn" type="TextureButton" parent="."]
+offset_left = 332.0
+offset_top = 255.0
+offset_right = 686.0
+offset_bottom = 609.0
+texture_normal = ExtResource("2_1ehe0")
+script = ExtResource("3_n45e2")
+
+[node name="CookItemBtn" type="TextureButton" parent="."]
+offset_left = 331.0
+offset_top = 643.0
+offset_right = 685.0
+offset_bottom = 997.0
+texture_normal = ExtResource("3_ce3w2")
+script = ExtResource("5_n45e2")
+
+[node name="KitchenTasksLabelPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(505, 137)
+texture = ExtResource("6_opfnp")
+
+[connection signal="pressed" from="CollectIngredientsBtn" to="CollectIngredientsBtn" method="_on_pressed"]
+[connection signal="pressed" from="CookItemBtn" to="CookItemBtn" method="_on_pressed"]
