@@ -3,12 +3,12 @@ extends Node2D
 # stores currently playing fmod event/song
 var event: FmodEvent = null
 # can be swapped out to swap songs
-var currSong: String = "recipe 2"
+var currSong: String = "recipe 3"
 # current bpm, beats per measure (can change throughout song)
 var bpm: float = 0
 var timeUpper: int = 0;
 # length between measure bars in pixels
-var measureLength: int = 400
+var measureLength: int = 800
 # curr measure, starting position of timeline bar
 var measure: int = 0;
 var startPos: Vector2;

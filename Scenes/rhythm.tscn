@@ -31,6 +31,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="2" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(400, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -41,6 +42,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="4" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(1200, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -51,6 +53,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="6" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(2000, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -61,6 +64,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="8" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(2800, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -71,6 +75,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="10" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(3600, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -81,6 +86,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="12" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(4400, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -91,6 +97,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="14" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(5200, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -101,6 +108,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="16" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(6000, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -111,6 +119,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="18" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(6800, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -121,6 +130,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="20" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(7600, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -131,6 +141,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="22" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(8400, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -141,6 +152,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="24" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(9200, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -151,6 +163,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="26" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(10000, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -161,6 +174,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="28" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(10800, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
@@ -171,6 +185,7 @@ scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")
 
 [node name="30" type="Sprite2D" parent="timeline/measure bars"]
+visible = false
 position = Vector2(11600, 0)
 scale = Vector2(8.333, 250)
 texture = SubResource("PlaceholderTexture2D_0ckw0")

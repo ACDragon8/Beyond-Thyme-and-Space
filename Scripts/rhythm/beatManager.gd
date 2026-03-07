@@ -1,7 +1,7 @@
 extends Node2D
 
 # distance between each measure bar in pixels
-var measureLength: int = 400
+var measureLength: int = 800
 # list of beats as parsed from beatmap text file
 # has format ["name of event", beat per measure,position(ms) in fmod event]
 var beatList = [];
@@ -12,7 +12,7 @@ var beatScene = preload("res://scenes/beat.tscn")
 var holdScene = preload("res://scenes/hold.tscn")
 # can be swapped out to swap songs
 # probably should make this a reference to a global or some other manager later
-var currSong = "recipe 2"
+var currSong = "recipe 3"
 
 # reads and parses beatmap text file into beatList
 func _init():
@@ -53,7 +53,7 @@ func parsePlaceBeats(beats: Array):
 				var holdInstance = holdScene.instantiate()
 				add_child(holdInstance)
 				holdInstance.position = lastPos + Vector2(dist/2, 0)
-				holdInstance.scale = Vector2(dist/20, 1)
+				holdInstance.scale = Vector2(dist/32, 1)
 				dispList.append(holdInstance)
 			dispList.append(beatInstance)
 		if type == "hd":
