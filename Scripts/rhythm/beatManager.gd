@@ -70,7 +70,7 @@ func getBeatlist():
 # then destroys the instanced scene to make it disappear
 # can be replaced with sprite sub, etc. later
 # extra modifications will have to be made for holds
-func _destroyBeat():
+func destroyBeat():
 	if beatList.size() > 0:
 		var curr = beatList.pop_front()
 		dispList.pop_front().queue_free()
@@ -82,7 +82,7 @@ func _destroyBeat():
 
 # called when beat goes unhit and turns into a miss
 # currently identical to _destroyBeat
-func _missBeat():
+func missBeat():
 	if beatList.size() > 0:
 		var curr = beatList.pop_front()
 		dispList.pop_front().queue_free()

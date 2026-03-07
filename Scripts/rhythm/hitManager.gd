@@ -17,8 +17,8 @@ var beatList
 @export var txt: RichTextLabel;
 
 func _ready():
-	destroy = Callable(beatManager, "_destroyBeat")
-	miss = Callable(beatManager, "_missBeat")
+	destroy = Callable(beatManager, "destroyBeat")
+	miss = Callable(beatManager, "missBeat")
 	beatList = beatManager.getBeatlist()
 
 func _process(delta):
