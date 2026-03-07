@@ -39,7 +39,7 @@ func _process(delta):
 				txt.clear()
 				txt.append_text(str(curr[2] - fmodManager.getEvent().position))
 			var type = curr[0].right(2)
-			if type == "hu":
+			if type == "hd":
 				hold = true;
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
