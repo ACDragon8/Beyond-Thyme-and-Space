@@ -30,6 +30,8 @@ func _process(delta):
 			beatList = beatManager.getBeatlist()
 			txt.clear()
 			txt.append_text("miss")
+			if hold:
+				hold = false
 		# if player input, check if note is within hitWindow ms, then make
 		# changes to beatList and display (beats and hold down)
 		if Input.is_action_just_pressed("hit"):
