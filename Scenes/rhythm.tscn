@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=7 format=3 uid="uid://cq48ea8ab1xam"]
 
 [ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
+[ext_resource type="Texture2D" uid="uid://cwhvskv4qlb6j" path="res://Assets/Assets - UI/indicator hit.png" id="1_rh6da"]
+[ext_resource type="Texture2D" uid="uid://bayoil4p2e02w" path="res://Assets/Assets - Background/rhythm_game_bg.png" id="1_u3e6l"]
 [ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
 [ext_resource type="Script" uid="uid://dyodgwig82klo" path="res://Scripts/rhythm/hitManager.gd" id="3_n64c0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ckw0"]
 
 [node name="Rhythm" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_u3e6l")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.strings.bank", "res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.bank"]
@@ -16,8 +22,7 @@ bank_paths = ["res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Bui
 [node name="bar" type="Sprite2D" parent="."]
 z_index = 100
 position = Vector2(150, 540)
-scale = Vector2(20, 800)
-texture = SubResource("PlaceholderTexture2D_0ckw0")
+texture = ExtResource("1_rh6da")
 
 [node name="timeline" type="Node2D" parent="." node_paths=PackedStringArray("listenerPos")]
 position = Vector2(150, 540)

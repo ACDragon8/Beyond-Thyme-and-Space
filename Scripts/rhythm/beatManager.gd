@@ -53,7 +53,7 @@ func parsePlaceBeats(beats: Array):
 				var holdInstance = holdScene.instantiate()
 				add_child(holdInstance)
 				holdInstance.position = lastPos + Vector2(dist/2, 0)
-				holdInstance.scale = Vector2(dist/32, 1)
+				holdInstance.scale = Vector2(dist/238, 1)
 				dispList.append(holdInstance)
 			dispList.append(beatInstance)
 		if type == "hd":
