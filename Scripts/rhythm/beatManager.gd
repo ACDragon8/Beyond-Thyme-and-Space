@@ -56,7 +56,7 @@ func parsePlaceBeats(beats: Array):
 				var dist = beatInstance.position.distance_to(lastPos)
 				var holdInstance = holdScene.instantiate()
 				add_child(holdInstance)
-				holdInstance.position = lastPos + Vector2(dist/2, 0)
+				holdInstance.position = lastPos
 				holdInstance.scale = Vector2(dist/238, 1)
 				dispList.append(holdInstance)
 			dispList.append(beatInstance)
@@ -68,6 +68,9 @@ func parsePlaceBeats(beats: Array):
 # for use in other scripts
 func getBeatlist():
 	return beatList
+
+func getDispList():
+	return dispList
 
 # called when player uses input to hit a beat
 # removes soonest viable beat from beatList

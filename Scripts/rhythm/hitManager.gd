@@ -42,6 +42,14 @@ func _process(delta):
 				var type = curr[0].right(2)
 				if type == "hd":
 					hold = true;
+		if Input.is_action_pressed("hit"):
+			if hold == true:
+				var clip = beatManager.getDispList()[0].get_child(0)
+				var loc = beatManager.getDispList()[0].get_child(1)
+				var bar = clip.get_child(0).get_child(0)
+				clip.global_position.x = get_node("../../bar").global_position.x
+				bar.global_position.x = loc.global_position.x
+				print_debug(loc.global_position)
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
 		if Input.is_action_just_released("hit"):
