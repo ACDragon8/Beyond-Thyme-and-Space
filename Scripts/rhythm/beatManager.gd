@@ -1,7 +1,8 @@
 extends Node2D
 
+@onready var measureManager = get_node("../measureManager")
 # distance between each measure bar in pixels
-var measureLength: int = 800
+var measureLength: int = 100
 # list of beats as parsed from beatmap text file
 # has format ["name of event", beat per measure,position(ms) in fmod event]
 var beatList = [];
@@ -26,6 +27,9 @@ func _init():
 			beatList[n].append(temp2[0])
 			beatList[n].append(temp2[1].to_int())
 			beatList[n].append(temp2[2].to_int())
+
+func _ready():
+	measureLength = measureManager.getMeasureLength()
 	parsePlaceBeats(beatList)
 
 # further parses data from each beatList element and instantiates 
@@ -74,9 +78,7 @@ func destroyBeat():
 	if beatList.size() > 0:
 		var curr = beatList.pop_front()
 		dispList.pop_front().queue_free()
-		print(dispList)
 		var type = curr[0].right(2)
-		print_debug(type)
 		if type == "hu":
 			dispList.pop_front().queue_free()
 
@@ -86,8 +88,6 @@ func missBeat():
 	if beatList.size() > 0:
 		var curr = beatList.pop_front()
 		dispList.pop_front().queue_free()
-		print(dispList)
 		var type = curr[0].right(2)
-		print_debug(type)
 		if type == "hu":
 			dispList.pop_front().queue_free()

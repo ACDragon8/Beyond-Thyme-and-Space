@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo4rxou3q2ck"]
+
+[ext_resource type="Texture2D" uid="uid://b2ltuhjsftgyl" path="res://Assets/Assets - UI/indicator measure.png" id="1_07h6f"]
+
+[node name="Measure" type="Node2D"]
+
+[node name="bar" type="Sprite2D" parent="."]
+texture = ExtResource("1_07h6f")

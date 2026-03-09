@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var measureManager = get_node("measureManager")
 # stores currently playing fmod event/song
 var event: FmodEvent = null
 # can be swapped out to swap songs
@@ -8,7 +9,7 @@ var currSong: String = "recipe 3"
 var bpm: float = 0
 var timeUpper: int = 0;
 # length between measure bars in pixels
-var measureLength: int = 800
+var measureLength: int = 100
 # curr measure, starting position of timeline bar
 var measure: int = 0;
 var startPos: Vector2;
@@ -22,6 +23,7 @@ func _init():
 # initializes fmod event
 func _ready():
 	print_debug("wha")
+	measureLength = measureManager.getMeasureLength()
 	event = FmodServer.create_event_instance("event:/recipes/"+currSong)
 	# attach callback to all events emitted by timeline
 	# includes events on every beat + any user-defined events as part of beat map
