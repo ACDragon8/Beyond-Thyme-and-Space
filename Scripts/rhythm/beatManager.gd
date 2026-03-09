@@ -14,10 +14,11 @@ var holdScene = preload("res://scenes/hold.tscn")
 # can be swapped out to swap songs
 # probably should make this a reference to a global or some other manager later
 var currSong = "recipe 3"
+var currDiff = "normal"
 
 # reads and parses beatmap text file into beatList
 func _init():
-	var file = FileAccess.open("res://assets/assets - music/beatmaps/"+currSong+".txt", FileAccess.READ)
+	var file = FileAccess.open("res://assets/assets - music/beatmaps/"+currSong+" "+currDiff+".txt", FileAccess.READ)
 	var content = file.get_as_text()
 	var tempList = content.split("\n")
 	for n in range(0,tempList.size()):

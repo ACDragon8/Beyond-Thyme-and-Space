@@ -14,8 +14,9 @@ var miss
 var beatList
 # richtextlabel that displays "miss" or offset from true time
 # can be removed/swapped out for juicy feedback later
-@export var txt: RichTextLabel
+@export var fb: RichTextLabel
 @export var acc: RichTextLabel
+@export var com: RichTextLabel
 var seen = 0.0
 var hit = 0.0
 var combo = 0
@@ -35,10 +36,14 @@ func _process(delta):
 			miss.call()
 			beatList = beatManager.getBeatlist()
 			seen += 4
-			txt.clear()
+			combos.append(combo)
+			combo = 0
+			fb.clear()
 			acc.clear()
-			txt.append_text("miss")
+			com.clear()
+			fb.append_text("miss")
 			acc.append_text(str((hit/seen)*100)+"%")
+			com.append_text(str(combo))
 			hold = false
 		# if player input, check if note is within hitWindow ms, then make
 		# changes to beatList and display (beats and hold down)
@@ -47,11 +52,13 @@ func _process(delta):
 				destroy.call()
 				beatList = beatManager.getBeatlist()
 				seen += 4
-				txt.clear()
+				fb.clear()
 				acc.clear()
+				com.clear()
 				var offset = curr[2] - fmodManager.getEvent().position
-				txt.append_text(score(offset))
+				fb.append_text(score(offset))
 				acc.append_text(str((hit/seen)*100)+"%")
+				com.append_text(str(combo))
 				var type = curr[0].right(2)
 				if type == "hd":
 					hold = true;
@@ -63,7 +70,14 @@ func _process(delta):
 				var bar = clip.get_child(0).get_child(0)
 				clip.global_position.x = get_node("../../bar").global_position.x
 				bar.global_position.x = loc.global_position.x
-				print_debug(loc.global_position)
+				var passed = fmodManager.getEvent().position - holdStartPos
+				print(passed)
+				print_debug(60000/(fmodManager.getBPM()*4))
+				if (passed > (60000/(fmodManager.getBPM()*4))):
+					combo += 1
+					holdStartPos = fmodManager.getEvent().position
+					com.clear()
+					com.append_text(str(combo))
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
 		if Input.is_action_just_released("hit"):
@@ -73,23 +87,31 @@ func _process(delta):
 				beatList = beatManager.getBeatlist()
 				hold = false;
 				seen += 4
-				txt.clear()
+				fb.clear()
 				acc.clear()
+				com.clear()
 				var offset = curr[2] - fmodManager.getEvent().position
-				txt.append_text(score(offset))
+				fb.append_text(score(offset))
 				acc.append_text(str((hit/seen)*100)+"%")
+				com.append_text(str(combo))
 
 func score(offset):
 	if absi(offset) <= 50:
 		hit += 4
+		combo += 1
 		return "perfect"
 	if absi(offset) <= 100 && absi(offset) > 50:
 		hit += 3
+		combo += 1
 		return "ok"
 	if offset < -100:
 		hit += 1
+		combo += 1
 		return "late!"
 	if offset > 100 && offset <= 200: 
 		hit += 1
+		combo += 1
 		return "early!"
+	combo = 0
+	combos.append(combo)
 	return "miss"

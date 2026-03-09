@@ -34,10 +34,11 @@ script = ExtResource("4_q274c")
 [node name="beatManager" type="Node2D" parent="timeline"]
 script = ExtResource("2_43wq1")
 
-[node name="hitManager" type="Node2D" parent="timeline" node_paths=PackedStringArray("txt", "acc")]
+[node name="hitManager" type="Node2D" parent="timeline" node_paths=PackedStringArray("fb", "acc", "com")]
 script = ExtResource("3_n64c0")
-txt = NodePath("../../feedback")
+fb = NodePath("../../feedback")
 acc = NodePath("../../acc")
+com = NodePath("../../combo")
 
 [node name="feedback" type="RichTextLabel" parent="."]
 offset_left = 217.0
@@ -45,6 +46,14 @@ offset_top = 325.0
 offset_right = 346.0
 offset_bottom = 365.0
 text = "wahoo"
+
+[node name="combo" type="RichTextLabel" parent="."]
+offset_left = 600.0
+offset_top = 327.0
+offset_right = 640.0
+offset_bottom = 367.0
+text = "0
+"
 
 [node name="acc" type="RichTextLabel" parent="."]
 offset_left = 351.0

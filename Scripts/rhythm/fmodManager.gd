@@ -5,6 +5,7 @@ extends Node2D
 var event: FmodEvent = null
 # can be swapped out to swap songs
 var currSong: String = "recipe 3"
+var currDiff: String = "normal"
 # current bpm, beats per measure (can change throughout song)
 var bpm: float = 0
 var timeUpper: int = 0;
@@ -24,7 +25,7 @@ func _init():
 func _ready():
 	print_debug("wha")
 	measureLength = measureManager.getMeasureLength()
-	event = FmodServer.create_event_instance("event:/recipes/"+currSong)
+	event = FmodServer.create_event_instance("event:/recipes/"+currSong+"/"+currDiff)
 	# attach callback to all events emitted by timeline
 	# includes events on every beat + any user-defined events as part of beat map
 	event.set_callback(Callable(self, "scrollBy"), FmodServer.FMOD_STUDIO_EVENT_CALLBACK_ALL)
