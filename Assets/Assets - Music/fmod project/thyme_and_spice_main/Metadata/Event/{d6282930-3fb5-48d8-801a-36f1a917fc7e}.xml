@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{d6282930-3fb5-48d8-801a-36f1a917fc7e}">
 		<property name="name">
-			<value>recipe 2</value>
+			<value>hard</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{33a81d08-1217-4985-96ae-39ba23b0940c}</destination>
+			<destination>{0a943bf7-cfd8-4f27-90a4-9785f8ec1c4a}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{2b80a375-eaa8-43f9-9889-39c04e416e65}</destination>

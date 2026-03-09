@@ -23,10 +23,11 @@ z_index = 100
 position = Vector2(150, 540)
 texture = ExtResource("1_rh6da")
 
-[node name="timeline" type="Node2D" parent="." node_paths=PackedStringArray("listenerPos")]
+[node name="timeline" type="Node2D" parent="." node_paths=PackedStringArray("listenerPos", "diffText")]
 position = Vector2(150, 540)
 script = ExtResource("1_gt65o")
 listenerPos = NodePath("../center")
+diffText = NodePath("../diff")
 
 [node name="measureManager" type="Node2D" parent="timeline"]
 script = ExtResource("4_q274c")
@@ -54,6 +55,13 @@ offset_right = 640.0
 offset_bottom = 367.0
 text = "0
 "
+
+[node name="diff" type="RichTextLabel" parent="."]
+offset_left = 700.0
+offset_top = 327.0
+offset_right = 887.0
+offset_bottom = 367.0
+text = "wah"
 
 [node name="acc" type="RichTextLabel" parent="."]
 offset_left = 351.0

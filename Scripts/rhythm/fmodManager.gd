@@ -4,8 +4,8 @@ extends Node2D
 # stores currently playing fmod event/song
 var event: FmodEvent = null
 # can be swapped out to swap songs
-var currSong: String = "recipe 3"
-var currDiff: String = "normal"
+var currSong: String = "recipe 2"
+var currDiff: String = "hard"
 # current bpm, beats per measure (can change throughout song)
 var bpm: float = 0
 var timeUpper: int = 0;
@@ -16,6 +16,7 @@ var measure: int = 0;
 var startPos: Vector2;
 # actual transform position in game where sound is meant to come from
 @export var listenerPos: Node2D = null
+@export var diffText: RichTextLabel
 
 # sets startpos for scroll calculations
 func _init():
@@ -25,6 +26,8 @@ func _init():
 func _ready():
 	print_debug("wha")
 	measureLength = measureManager.getMeasureLength()
+	diffText.clear()
+	diffText.append_text(currDiff)
 	event = FmodServer.create_event_instance("event:/recipes/"+currSong+"/"+currDiff)
 	# attach callback to all events emitted by timeline
 	# includes events on every beat + any user-defined events as part of beat map

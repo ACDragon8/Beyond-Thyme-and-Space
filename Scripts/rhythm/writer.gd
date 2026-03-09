@@ -2,13 +2,14 @@ extends Node2D
 var event: FmodEvent = null
 var beatStr: String = ""
 var currTime: int = 0
-var currSong = "recipe 3"
-var currFile = "res://assets/assets - music/beatmaps/"+currSong+".txt"
+var currSong = "recipe 1"
+var currDiff = "normal"
+var currFile = "res://assets/assets - music/beatmaps/"+currSong+" "+currDiff+".txt"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print_debug("wha")
-	event = FmodServer.create_event_instance("event:/recipes/"+currSong)
+	event = FmodServer.create_event_instance("event:/recipes/"+currSong+"/"+currDiff)
 	event.set_callback(Callable(self, "markerManage"), FmodServer.FMOD_STUDIO_EVENT_CALLBACK_ALL)
 	event.set_2d_attributes(self.global_transform)
 	event.volume = 0.1
