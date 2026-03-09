@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk424spaa13rx"]
+[gd_scene load_steps=3 format=3 uid="uid://bk424spaa13rx"]
 
 [ext_resource type="Texture2D" uid="uid://ctn6b8sj6htpt" path="res://Assets/Assets - UI/hold_note.png" id="1_oji8j"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oji8j"]
+size = Vector2(238, 50)
+
 [node name="Hold" type="Node2D"]
 
-[node name="HoldNote" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 1
 z_index = 4
+position = Vector2(-119, 0)
+texture = SubResource("PlaceholderTexture2D_oji8j")
+offset = Vector2(119, 0)
+
+[node name="HoldNote" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(119, 0)
 texture = ExtResource("1_oji8j")

@@ -30,23 +30,23 @@ func _process(delta):
 			beatList = beatManager.getBeatlist()
 			txt.clear()
 			txt.append_text("miss")
-			if hold:
-				hold = false
+			hold = false
 		# if player input, check if note is within hitWindow ms, then make
 		# changes to beatList and display (beats and hold down)
 		if Input.is_action_just_pressed("hit"):
-			if curr[2] - fmodManager.getEvent().position < hitWindow && !hold:
+			if (curr[2] - fmodManager.getEvent().position < hitWindow) && !hold:
 				destroy.call()
 				beatList = beatManager.getBeatlist()
 				txt.clear()
 				txt.append_text(str(curr[2] - fmodManager.getEvent().position))
-			var type = curr[0].right(2)
-			if type == "hd":
-				hold = true;
+				var type = curr[0].right(2)
+				if type == "hd":
+					hold = true;
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
 		if Input.is_action_just_released("hit"):
-			if hold:
+			if hold == true:
+				print("what")
 				destroy.call()
 				beatList = beatManager.getBeatlist()
 				hold = false;
