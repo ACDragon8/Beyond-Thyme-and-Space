@@ -55,3 +55,6 @@ func scrollBy(dict: Dictionary, _type: int):
 # returns fmod event for other scripts to see
 func getEvent():
 	return event
+
+func getBPM():
+	return bpm

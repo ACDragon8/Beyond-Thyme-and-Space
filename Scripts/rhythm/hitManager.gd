@@ -6,15 +6,21 @@ extends Node2D
 # in ms, represents how early you can begin hitting a note
 # (ex. how soon an input registers as a hit for the soonest note)
 # and how much time after it passes the bar until its considered a miss
-var hitWindow: int = 200;
-var hold: bool = false;
+var hitWindow: int = 200
+var hold: bool = false
 # references to callables and stuff from other functions
 var destroy
 var miss
 var beatList
 # richtextlabel that displays "miss" or offset from true time
 # can be removed/swapped out for juicy feedback later
-@export var txt: RichTextLabel;
+@export var txt: RichTextLabel
+@export var acc: RichTextLabel
+var seen = 0.0
+var hit = 0.0
+var combo = 0
+var combos = []
+var holdStartPos
 
 func _ready():
 	destroy = Callable(beatManager, "destroyBeat")
@@ -28,8 +34,11 @@ func _process(delta):
 		if (curr[2] - fmodManager.getEvent().position) < -hitWindow+1:
 			miss.call()
 			beatList = beatManager.getBeatlist()
+			seen += 4
 			txt.clear()
+			acc.clear()
 			txt.append_text("miss")
+			acc.append_text(str((hit/seen)*100)+"%")
 			hold = false
 		# if player input, check if note is within hitWindow ms, then make
 		# changes to beatList and display (beats and hold down)
@@ -37,11 +46,16 @@ func _process(delta):
 			if (curr[2] - fmodManager.getEvent().position < hitWindow) && !hold:
 				destroy.call()
 				beatList = beatManager.getBeatlist()
+				seen += 4
 				txt.clear()
-				txt.append_text(str(curr[2] - fmodManager.getEvent().position))
+				acc.clear()
+				var offset = curr[2] - fmodManager.getEvent().position
+				txt.append_text(score(offset))
+				acc.append_text(str((hit/seen)*100)+"%")
 				var type = curr[0].right(2)
 				if type == "hd":
 					hold = true;
+					holdStartPos = fmodManager.getEvent().position
 		if Input.is_action_pressed("hit"):
 			if hold == true:
 				var clip = beatManager.getDispList()[0].get_child(0)
@@ -58,5 +72,24 @@ func _process(delta):
 				destroy.call()
 				beatList = beatManager.getBeatlist()
 				hold = false;
+				seen += 4
 				txt.clear()
-				txt.append_text(str(curr[2] - fmodManager.getEvent().position))
+				acc.clear()
+				var offset = curr[2] - fmodManager.getEvent().position
+				txt.append_text(score(offset))
+				acc.append_text(str((hit/seen)*100)+"%")
+
+func score(offset):
+	if absi(offset) <= 50:
+		hit += 4
+		return "perfect"
+	if absi(offset) <= 100 && absi(offset) > 50:
+		hit += 3
+		return "ok"
+	if offset < -100:
+		hit += 1
+		return "late!"
+	if offset > 100 && offset <= 200: 
+		hit += 1
+		return "early!"
+	return "miss"
