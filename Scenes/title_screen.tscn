@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://buelqy73uc1kd"]
+[gd_scene load_steps=8 format=3 uid="uid://buelqy73uc1kd"]
 
-[ext_resource type="Texture2D" uid="uid://utjl76hucqvp" path="res://Assets/title_screen_bg_placeholder.png" id="1_klylv"]
-[ext_resource type="Texture2D" uid="uid://bcbgwgvaliagv" path="res://Assets/start_game_btn_placeholder.png" id="2_p3fck"]
-[ext_resource type="Texture2D" uid="uid://5dpoq2gjo7af" path="res://Assets/credits_btn_placeholder.png" id="3_4gxqj"]
+[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/TNS_bg.png" id="1_12m1t"]
+[ext_resource type="Texture2D" uid="uid://cj54r6gcdybbn" path="res://Assets/button_long default.png" id="2_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://bwuidcmdo55a6" path="res://Assets/button_long pressed.png" id="3_n82rj"]
 [ext_resource type="Script" uid="uid://bc7rnimk5fkj1" path="res://Scripts/start_game_btn.gd" id="3_twnyg"]
+[ext_resource type="BitMap" uid="uid://q83vgxjjqyt4" path="res://Assets/button_long_clickmask.png" id="4_6vd4x"]
 [ext_resource type="Script" uid="uid://dxmdvciyf43x1" path="res://Scripts/credits_btn.gd" id="5_55kwv"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_twnyg"]
+[ext_resource type="Texture2D" uid="uid://dulm8gqq3txcp" path="res://Assets/logo.png" id="7_6vd4x"]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -15,37 +15,67 @@ show_behind_parent = true
 z_index = -1
 z_as_relative = false
 position = Vector2(961, 542)
-texture = ExtResource("1_klylv")
+texture = ExtResource("1_12m1t")
 
 [node name="StartGameBtn" type="TextureButton" parent="."]
 top_level = true
 z_as_relative = false
-offset_left = 626.0
-offset_top = 698.0
-offset_right = 1285.0
-offset_bottom = 871.0
-button_group = SubResource("ButtonGroup_twnyg")
-texture_normal = ExtResource("2_p3fck")
-texture_pressed = ExtResource("2_p3fck")
-texture_hover = ExtResource("2_p3fck")
-texture_disabled = ExtResource("2_p3fck")
-texture_focused = ExtResource("2_p3fck")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 510.0
+offset_right = 750.0
+offset_bottom = 1510.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_6vd4x")
+texture_pressed = ExtResource("3_n82rj")
+texture_click_mask = ExtResource("4_6vd4x")
 script = ExtResource("3_twnyg")
 
-[node name="Sprite2D" type="Sprite2D" parent="StartGameBtn"]
-position = Vector2(330, 85)
-texture = ExtResource("2_p3fck")
+[node name="Label" type="Label" parent="StartGameBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.386
+anchor_right = 1.0
+anchor_bottom = 0.618
+offset_left = 140.0
+offset_top = -42.0
+offset_right = -136.0
+offset_bottom = 8.0
+text = "START GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CreditsBtn" type="TextureButton" parent="."]
 top_level = true
 visibility_layer = 1048575
 z_as_relative = false
-offset_left = 712.0
-offset_top = 913.0
-offset_right = 1192.0
-offset_bottom = 1039.0
-texture_normal = ExtResource("3_4gxqj")
+offset_left = 810.0
+offset_top = 835.0
+offset_right = 1810.0
+offset_bottom = 1835.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_6vd4x")
+texture_pressed = ExtResource("3_n82rj")
+texture_click_mask = ExtResource("4_6vd4x")
 script = ExtResource("5_55kwv")
+
+[node name="Label" type="Label" parent="CreditsBtn"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 903.0
+offset_bottom = 697.0
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(960, 282)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_6vd4x")
 
 [connection signal="pressed" from="StartGameBtn" to="StartGameBtn" method="_on_pressed"]
 [connection signal="pressed" from="CreditsBtn" to="CreditsBtn" method="_on_pressed"]

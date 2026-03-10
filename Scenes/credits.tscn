@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://tu5gkqku6pmo"]
 
-[ext_resource type="Texture2D" uid="uid://cwknw3gskoqcx" path="res://Assets/main_menu_bg_placeholder.png" id="1_r18jl"]
+[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/TNS_bg.png" id="1_gryuy"]
 [ext_resource type="Script" uid="uid://b5svhswyyia65" path="res://Scripts/credits_text.gd" id="2_gryuy"]
 
 [node name="Credits" type="Node2D"]
 
-[node name="BgPlaceholder" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_r18jl")
+texture = ExtResource("1_gryuy")
 
 [node name="CreditsText" type="RichTextLabel" parent="."]
 offset_top = 58.0
