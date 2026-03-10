@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=11 format=3 uid="uid://cq48ea8ab1xam"]
 
 [ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
 [ext_resource type="Texture2D" uid="uid://cwhvskv4qlb6j" path="res://Assets/Assets - UI/indicator hit.png" id="1_rh6da"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
 [ext_resource type="Script" uid="uid://dyodgwig82klo" path="res://Scripts/rhythm/hitManager.gd" id="3_n64c0"]
 [ext_resource type="Script" uid="uid://bhvnhq4346ipo" path="res://Scenes/measureManager.gd" id="4_q274c"]
+[ext_resource type="Texture2D" uid="uid://4vx3jgn6lt35" path="res://Assets/Assets - Background/rhythm_game_bg_frame.png" id="7_5d0eo"]
+[ext_resource type="Texture2D" uid="uid://t4dmdfkhvq2u" path="res://Assets/Assets - Background/rhythm game cutting board.png" id="8_cqdyf"]
+[ext_resource type="Texture2D" uid="uid://dxkmykedc581s" path="res://Assets/Assets - UI/select-bg.png" id="9_p34ow"]
+[ext_resource type="Texture2D" uid="uid://boc47www224ec" path="res://Assets/Assets - UI/select-outline.png" id="10_xftht"]
 
 [node name="Rhythm" type="Node2D"]
 
@@ -14,58 +18,107 @@ bank_paths = ["res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Bui
 
 [node name="center" type="Node2D" parent="."]
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="rhythm interface" type="Node2D" parent="."]
+position = Vector2(133, 155)
+scale = Vector2(0.711, 0.711)
+
+[node name="bg" type="Sprite2D" parent="rhythm interface"]
 position = Vector2(960, 540)
 texture = ExtResource("1_u3e6l")
 
-[node name="bar" type="Sprite2D" parent="."]
+[node name="bar" type="Sprite2D" parent="rhythm interface"]
 z_index = 100
 position = Vector2(150, 540)
 texture = ExtResource("1_rh6da")
 
-[node name="timeline" type="Node2D" parent="." node_paths=PackedStringArray("listenerPos", "diffText")]
+[node name="timeline" type="Node2D" parent="rhythm interface" node_paths=PackedStringArray("listenerPos", "diffText")]
 position = Vector2(150, 540)
 script = ExtResource("1_gt65o")
-listenerPos = NodePath("../center")
-diffText = NodePath("../diff")
+listenerPos = NodePath("../../center")
+diffText = NodePath("../../diff")
 
-[node name="measureManager" type="Node2D" parent="timeline"]
+[node name="measureManager" type="Node2D" parent="rhythm interface/timeline"]
 script = ExtResource("4_q274c")
 
-[node name="beatManager" type="Node2D" parent="timeline"]
+[node name="beatManager" type="Node2D" parent="rhythm interface/timeline"]
 script = ExtResource("2_43wq1")
 
-[node name="hitManager" type="Node2D" parent="timeline" node_paths=PackedStringArray("fb", "acc", "com")]
+[node name="hitManager" type="Node2D" parent="rhythm interface/timeline" node_paths=PackedStringArray("fb", "acc", "com")]
 script = ExtResource("3_n64c0")
-fb = NodePath("../../feedback")
-acc = NodePath("../../acc")
-com = NodePath("../../combo")
+fb = NodePath("../../../feedback")
+acc = NodePath("../../../acc")
+com = NodePath("../../../ui/combo")
+
+[node name="frame" type="Sprite2D" parent="rhythm interface"]
+position = Vector2(960, 540)
+texture = ExtResource("7_5d0eo")
 
 [node name="feedback" type="RichTextLabel" parent="."]
-offset_left = 217.0
-offset_top = 325.0
-offset_right = 346.0
-offset_bottom = 365.0
+offset_left = 304.0
+offset_top = 373.0
+offset_right = 433.0
+offset_bottom = 413.0
 text = "wahoo"
 
-[node name="combo" type="RichTextLabel" parent="."]
-offset_left = 600.0
-offset_top = 327.0
-offset_right = 640.0
-offset_bottom = 367.0
-text = "0
-"
-
 [node name="diff" type="RichTextLabel" parent="."]
-offset_left = 700.0
-offset_top = 327.0
-offset_right = 887.0
-offset_bottom = 367.0
+offset_left = 787.0
+offset_top = 375.0
+offset_right = 974.0
+offset_bottom = 415.0
 text = "wah"
 
 [node name="acc" type="RichTextLabel" parent="."]
-offset_left = 351.0
-offset_top = 327.0
-offset_right = 600.0
-offset_bottom = 367.0
+offset_left = 438.0
+offset_top = 375.0
+offset_right = 687.0
+offset_bottom = 415.0
 text = "0"
+
+[node name="board" type="Sprite2D" parent="."]
+z_index = 200
+position = Vector2(960, 540)
+texture = ExtResource("8_cqdyf")
+
+[node name="ui" type="Node2D" parent="."]
+z_index = 4096
+
+[node name="combo" type="RichTextLabel" parent="ui"]
+offset_left = 1563.0
+offset_top = 525.0
+offset_right = 1827.0
+offset_bottom = 825.0
+theme_override_font_sizes/normal_font_size = 50
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="combo label" type="RichTextLabel" parent="ui/combo"]
+offset_left = -43.0
+offset_top = 22.0
+offset_right = 302.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Combo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="recipe label" type="RichTextLabel" parent="ui"]
+offset_left = 1512.0
+offset_top = 108.0
+offset_right = 1857.0
+offset_bottom = 233.0
+theme_override_constants/line_separation = -10
+theme_override_font_sizes/normal_font_size = 40
+text = "Selected
+Recipe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="recipe bg" type="Sprite2D" parent="ui"]
+position = Vector2(1690, 403)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_p34ow")
+
+[node name="recipe frame" type="Sprite2D" parent="ui/recipe bg"]
+texture = ExtResource("10_xftht")
