@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctn6b8sj6htpt" path="res://Assets/Assets - UI/hold_note.png" id="1_oji8j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oji8j"]
-size = Vector2(238, 50)
+size = Vector2(500, 100)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3bnm2"]
 
@@ -13,14 +13,13 @@ size = Vector2(238, 50)
 
 [node name="clip" type="Sprite2D" parent="clipem"]
 clip_children = 1
-position = Vector2(119, 0)
+position = Vector2(250, 0)
 texture = SubResource("PlaceholderTexture2D_oji8j")
 
 [node name="HoldNote" type="Sprite2D" parent="clipem/clip"]
-position = Vector2(-119, 0)
-scale = Vector2(1, 1)
+position = Vector2(-250, 0)
 texture = ExtResource("1_oji8j")
-offset = Vector2(119, 0)
+offset = Vector2(250, 0)
 
 [node name="loc" type="Node2D" parent="."]
 
