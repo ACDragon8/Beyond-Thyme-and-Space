@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btxo6jl3cpbsq"
-path="res://.godot/imported/TNS_portrait1.png-a36300592bfe60eaee0786b91bc35f34.ctex"
+uid="uid://dupp2ccwhrai3"
+path="res://.godot/imported/TNS_bg.png-a8e97ec5af1e3ab6d06e76b14629cc57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assets - Character/TNS_portrait1.png"
-dest_files=["res://.godot/imported/TNS_portrait1.png-a36300592bfe60eaee0786b91bc35f34.ctex"]
+source_file="res://Assets/Assets - Background/TNS_bg.png"
+dest_files=["res://.godot/imported/TNS_bg.png-a8e97ec5af1e3ab6d06e76b14629cc57.ctex"]
 
 [params]
 

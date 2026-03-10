@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=12 format=3 uid="uid://cq48ea8ab1xam"]
 
 [ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
+[ext_resource type="Texture2D" uid="uid://dupp2ccwhrai3" path="res://Assets/Assets - Background/TNS_bg.png" id="1_p34ow"]
 [ext_resource type="Texture2D" uid="uid://cwhvskv4qlb6j" path="res://Assets/Assets - UI/indicator hit.png" id="1_rh6da"]
 [ext_resource type="Texture2D" uid="uid://bayoil4p2e02w" path="res://Assets/Assets - Background/rhythm_game_bg.png" id="1_u3e6l"]
 [ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
@@ -16,11 +17,15 @@
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.strings.bank", "res://Assets/Assets - Music/fmod project/thyme_and_spice_main/Build/Desktop/Master.bank"]
 
+[node name="bg for real" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_p34ow")
+
 [node name="center" type="Node2D" parent="."]
 
 [node name="rhythm interface" type="Node2D" parent="."]
-position = Vector2(133, 155)
-scale = Vector2(0.711, 0.711)
+position = Vector2(165, 175)
+scale = Vector2(0.677, 0.677)
 
 [node name="bg" type="Sprite2D" parent="rhythm interface"]
 position = Vector2(960, 540)
@@ -83,9 +88,9 @@ texture = ExtResource("8_cqdyf")
 z_index = 4096
 
 [node name="combo" type="RichTextLabel" parent="ui"]
-offset_left = 1563.0
+offset_left = 1543.0
 offset_top = 525.0
-offset_right = 1827.0
+offset_right = 1807.0
 offset_bottom = 825.0
 theme_override_font_sizes/normal_font_size = 50
 text = "0
@@ -104,9 +109,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="recipe label" type="RichTextLabel" parent="ui"]
-offset_left = 1512.0
+offset_left = 1492.0
 offset_top = 108.0
-offset_right = 1857.0
+offset_right = 1837.0
 offset_bottom = 233.0
 theme_override_constants/line_separation = -10
 theme_override_font_sizes/normal_font_size = 40
@@ -116,7 +121,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="recipe bg" type="Sprite2D" parent="ui"]
-position = Vector2(1690, 403)
+position = Vector2(1670, 403)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_p34ow")
 
