@@ -42,7 +42,7 @@ texture = ExtResource("1_rh6da")
 position = Vector2(150, 540)
 script = ExtResource("1_gt65o")
 listenerPos = NodePath("../../center")
-diffText = NodePath("../../diff")
+diffText = NodePath("../../ui/diff")
 
 [node name="measureManager" type="Node2D" parent="rhythm interface/timeline"]
 script = ExtResource("4_q274c")
@@ -50,12 +50,12 @@ script = ExtResource("4_q274c")
 [node name="beatManager" type="Node2D" parent="rhythm interface/timeline"]
 script = ExtResource("2_43wq1")
 
-[node name="hitManager" type="Node2D" parent="rhythm interface/timeline" node_paths=PackedStringArray("fb", "acc", "com", "dishDisplay")]
+[node name="hitManager" type="Node2D" parent="rhythm interface/timeline" node_paths=PackedStringArray("fb", "com", "dishDisplay", "ingredientDisplay")]
 script = ExtResource("3_n64c0")
 fb = NodePath("../../../feedback")
-acc = NodePath("../../../acc")
 com = NodePath("../../../ui/combo")
 dishDisplay = NodePath("../../../ui/recipe bg/dish")
+ingredientDisplay = NodePath("../../../ui/ingredient")
 
 [node name="frame" type="Sprite2D" parent="rhythm interface"]
 position = Vector2(960, 540)
@@ -66,21 +66,6 @@ offset_left = 304.0
 offset_top = 373.0
 offset_right = 433.0
 offset_bottom = 413.0
-text = "wahoo"
-
-[node name="diff" type="RichTextLabel" parent="."]
-offset_left = 787.0
-offset_top = 375.0
-offset_right = 974.0
-offset_bottom = 415.0
-text = "wah"
-
-[node name="acc" type="RichTextLabel" parent="."]
-offset_left = 438.0
-offset_top = 375.0
-offset_right = 687.0
-offset_bottom = 415.0
-text = "0"
 
 [node name="board" type="Sprite2D" parent="."]
 z_index = 200
@@ -133,3 +118,16 @@ texture = ExtResource("9_p34ow")
 
 [node name="recipe frame" type="Sprite2D" parent="ui/recipe bg"]
 texture = ExtResource("10_xftht")
+
+[node name="diff" type="RichTextLabel" parent="ui"]
+offset_left = 1575.0
+offset_top = 492.0
+offset_right = 1762.0
+offset_bottom = 536.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "wah"
+horizontal_alignment = 1
+
+[node name="ingredient" type="Sprite2D" parent="ui"]
+position = Vector2(1566, 824)

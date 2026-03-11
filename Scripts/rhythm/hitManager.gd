@@ -16,9 +16,9 @@ var beatList
 # richtextlabel that displays "miss" or offset from true time
 # can be removed/swapped out for juicy feedback later
 @export var fb: RichTextLabel
-@export var acc: RichTextLabel
 @export var com: RichTextLabel
 @export var dishDisplay: Sprite2D
+@export var ingredientDisplay: Sprite2D
 var seen = 0.0
 var hit = 0.0
 var combo = 0
@@ -26,6 +26,8 @@ var combos = []
 var holdStartPos
 var recipeData
 var currSong
+var currIng = [0, 0]
+var rotated = false
 
 func _ready():
 	destroy = Callable(beatManager, "destroyBeat")
@@ -33,6 +35,8 @@ func _ready():
 	beatList = beatManager.getBeatlist()
 	recipeData = recipeDataNode.getRecipeData()
 	currSong = fmodManager.getCurrSong()
+	loadRecipeDisplay()
+	loadFromString(recipeData[currSong]["ingredients"][0][0])
 
 func _process(delta):
 	if beatList.size() > 0:
@@ -45,10 +49,8 @@ func _process(delta):
 			combos.append(combo)
 			combo = 0
 			fb.clear()
-			acc.clear()
 			com.clear()
 			fb.append_text("miss")
-			acc.append_text(str((hit/seen)*100)+"%")
 			com.append_text(str(combo))
 			hold = false
 		# if player input, check if note is within hitWindow ms, then make
@@ -59,16 +61,18 @@ func _process(delta):
 				beatList = beatManager.getBeatlist()
 				seen += 4
 				fb.clear()
-				acc.clear()
 				com.clear()
 				var offset = curr[2] - fmodManager.getEvent().position
 				fb.append_text(score(offset))
-				acc.append_text(str((hit/seen)*100)+"%")
 				com.append_text(str(combo))
 				var type = curr[0].right(2)
 				if type == "hd":
 					hold = true;
 					holdStartPos = curr[2]
+				if beatList.size() > 0:
+					loadFromString(getNextIng())
+				else:
+					loadFromStringU(recipeData[currSong]["final"])
 		if Input.is_action_pressed("hit"):
 			if hold == true:
 				var clip = beatManager.getDispList()[0].get_child(0)
@@ -94,12 +98,16 @@ func _process(delta):
 				beatList = beatManager.getBeatlist()
 				seen += 4
 				fb.clear()
-				acc.clear()
 				com.clear()
 				var offset = curr[2] - fmodManager.getEvent().position
+				var score = score(offset)
 				fb.append_text(score(offset))
-				acc.append_text(str((hit/seen)*100)+"%")
 				com.append_text(str(combo))
+				if score != "miss":
+					if beatList.size() > 0:
+						loadFromString(getNextIng())
+					else:
+						loadFromStringU(recipeData[currSong]["final"])
 
 func score(offset):
 	if absi(offset) <= 50:
@@ -127,4 +135,43 @@ func score(offset):
 	return "miss"
 
 func loadRecipeDisplay():
-	recipeData[currSong]["final"]
+	var img = Image.load_from_file(recipeData[currSong]["final"])
+	var tex = ImageTexture.create_from_image(img)
+	var texSize = tex.get_size()
+	tex.set_size_override(Vector2(600, texSize.y*(600/texSize.x)))
+	dishDisplay.texture = tex
+
+func loadFromString(file):
+	var img = Image.load_from_file(file)
+	var tex = ImageTexture.create_from_image(img)
+	var texSize = tex.get_size()
+	if (texSize.x >= texSize.y):
+		tex.set_size_override(Vector2(500, texSize.y*(500/texSize.x)))
+		if rotated == true:
+			rotated = false
+			ingredientDisplay.rotate(0.95)
+	else:
+		tex.set_size_override(Vector2(texSize.x*(500/texSize.y), 500))
+		if rotated == false:
+			rotated = true
+			ingredientDisplay.rotate(-0.95)
+	ingredientDisplay.texture = tex
+
+func loadFromStringU(file):
+	var img = Image.load_from_file(file)
+	var tex = ImageTexture.create_from_image(img)
+	var texSize = tex.get_size()
+	tex.set_size_override(Vector2(700, texSize.y*(700/texSize.x)))
+	if rotated == true:
+			rotated = false
+			ingredientDisplay.rotate(0.95)
+	ingredientDisplay.texture = tex
+
+func getNextIng():
+	currIng = [currIng[0], currIng[1]+1]
+	if currIng[1] >= 3:
+		currIng[0] += 1
+		currIng[1] = 0
+	if currIng[0] >= recipeData[currSong]["ingredients"].size():
+		currIng[0] = 0
+	return recipeData[currSong]["ingredients"][currIng[0]][currIng[1]]
