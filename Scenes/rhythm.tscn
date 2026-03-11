@@ -130,4 +130,4 @@ text = "wah"
 horizontal_alignment = 1
 
 [node name="ingredient" type="Sprite2D" parent="ui"]
-position = Vector2(1566, 824)
+position = Vector2(1542, 832)

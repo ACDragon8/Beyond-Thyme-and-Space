@@ -75,19 +75,22 @@ func _process(delta):
 					loadFromStringU(recipeData[currSong]["final"])
 		if Input.is_action_pressed("hit"):
 			if hold == true:
-				var clip = beatManager.getDispList()[0].get_child(0)
-				var loc = beatManager.getDispList()[0].get_child(1)
-				var bar = clip.get_child(0).get_child(0)
-				clip.global_position.x = get_node("../../bar").global_position.x
-				bar.global_position.x = loc.global_position.x
-				if (holdStartPos > beatList[0][2]):
-					holdStartPos = beatList[0][2]
-				var passed = fmodManager.getEvent().position - holdStartPos
-				if (passed > (60000/(fmodManager.getBPM()*4))) && holdStartPos != beatList[0][2]:
-					combo += 1
-					holdStartPos += 60000/(fmodManager.getBPM()*4)
-					com.clear()
-					com.append_text(str(combo))
+				if beatManager.getDispList().size() > 0:
+					var clip = beatManager.getDispList()[0].get_child(0)
+					var loc = beatManager.getDispList()[0].get_child(1)
+					var bar = clip.get_child(0).get_child(0)
+					clip.global_position.x = get_node("../../bar").global_position.x
+					bar.global_position.x = loc.global_position.x
+					if (holdStartPos > beatList[0][2]):
+						holdStartPos = beatList[0][2]
+					var passed = fmodManager.getEvent().position - holdStartPos
+					if (passed > (60000/(fmodManager.getBPM()*4))) && holdStartPos != beatList[0][2]:
+						combo += 1
+						holdStartPos += 60000/(fmodManager.getBPM()*4)
+						com.clear()
+						com.append_text(str(combo))
+				else:
+					hold = false
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
 		if Input.is_action_just_released("hit"):
@@ -146,15 +149,9 @@ func loadFromString(file):
 	var tex = ImageTexture.create_from_image(img)
 	var texSize = tex.get_size()
 	if (texSize.x >= texSize.y):
-		tex.set_size_override(Vector2(500, texSize.y*(500/texSize.x)))
-		if rotated == true:
-			rotated = false
-			ingredientDisplay.rotate(0.95)
+		tex.set_size_override(Vector2(400, texSize.y*(400/texSize.x)))
 	else:
-		tex.set_size_override(Vector2(texSize.x*(500/texSize.y), 500))
-		if rotated == false:
-			rotated = true
-			ingredientDisplay.rotate(-0.95)
+		tex.set_size_override(Vector2(texSize.x*(400/texSize.y), 400))
 	ingredientDisplay.texture = tex
 
 func loadFromStringU(file):
@@ -162,14 +159,11 @@ func loadFromStringU(file):
 	var tex = ImageTexture.create_from_image(img)
 	var texSize = tex.get_size()
 	tex.set_size_override(Vector2(700, texSize.y*(700/texSize.x)))
-	if rotated == true:
-			rotated = false
-			ingredientDisplay.rotate(0.95)
 	ingredientDisplay.texture = tex
 
 func getNextIng():
 	currIng = [currIng[0], currIng[1]+1]
-	if currIng[1] >= 3:
+	if currIng[1] >= recipeData[currSong]["ingredients"][currIng[0]].size():
 		currIng[0] += 1
 		currIng[1] = 0
 	if currIng[0] >= recipeData[currSong]["ingredients"].size():
