@@ -15,12 +15,15 @@ var holdScene = preload("res://scenes/hold.tscn")
 # probably should make this a reference to a global or some other manager later
 var currSong = "recipe 2"
 var currDiff = "hard"
+var fullComboCount = 0
 
 # reads and parses beatmap text file into beatList
 func _init():
 	var file = FileAccess.open("res://assets/assets - music/beatmaps/"+currSong+" "+currDiff+".txt", FileAccess.READ)
 	var content = file.get_as_text()
 	var tempList = content.split("\n")
+	fullComboCount = int(tempList[tempList.size()-2])
+	tempList.remove_at(tempList.size()-2)
 	for n in range(0,tempList.size()):
 		var temp2 = tempList[n].split(",")
 		if temp2.size() > 1:

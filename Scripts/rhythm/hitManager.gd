@@ -62,7 +62,7 @@ func _process(delta):
 				var type = curr[0].right(2)
 				if type == "hd":
 					hold = true;
-					holdStartPos = fmodManager.getEvent().position
+					holdStartPos = curr[2]
 		if Input.is_action_pressed("hit"):
 			if hold == true:
 				var clip = beatManager.getDispList()[0].get_child(0)
@@ -70,22 +70,22 @@ func _process(delta):
 				var bar = clip.get_child(0).get_child(0)
 				clip.global_position.x = get_node("../../bar").global_position.x
 				bar.global_position.x = loc.global_position.x
+				if (holdStartPos > beatList[0][2]):
+					holdStartPos = beatList[0][2]
 				var passed = fmodManager.getEvent().position - holdStartPos
-				print(passed)
-				print_debug(60000/(fmodManager.getBPM()*4))
-				if (passed > (60000/(fmodManager.getBPM()*4))):
+				if (passed > (60000/(fmodManager.getBPM()*4))) && holdStartPos != beatList[0][2]:
 					combo += 1
-					holdStartPos = fmodManager.getEvent().position
+					holdStartPos += 60000/(fmodManager.getBPM()*4)
 					com.clear()
 					com.append_text(str(combo))
 		# if in a hold, check for released space bar and make changes accordingly
 		# (hold up)
 		if Input.is_action_just_released("hit"):
 			if hold == true:
+				hold = false;
 				print("what")
 				destroy.call()
 				beatList = beatManager.getBeatlist()
-				hold = false;
 				seen += 4
 				fb.clear()
 				acc.clear()
@@ -97,18 +97,22 @@ func _process(delta):
 
 func score(offset):
 	if absi(offset) <= 50:
+		print_debug("perf")
 		hit += 4
 		combo += 1
 		return "perfect"
-	if absi(offset) <= 100 && absi(offset) > 50:
+	elif absi(offset) <= 100 && absi(offset) > 50:
+		print_debug("ok")
 		hit += 3
 		combo += 1
 		return "ok"
-	if offset < -100:
+	elif offset < -100:
+		print_debug("late")
 		hit += 1
 		combo += 1
 		return "late!"
-	if offset > 100 && offset <= 200: 
+	elif offset > 100 && offset <= 200: 
+		print_debug("earl")
 		hit += 1
 		combo += 1
 		return "early!"
