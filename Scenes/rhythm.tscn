@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=13 format=3 uid="uid://cq48ea8ab1xam"]
 
 [ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
 [ext_resource type="Texture2D" uid="uid://dupp2ccwhrai3" path="res://Assets/Assets - Background/TNS_bg.png" id="1_p34ow"]
 [ext_resource type="Texture2D" uid="uid://cwhvskv4qlb6j" path="res://Assets/Assets - UI/indicator hit.png" id="1_rh6da"]
 [ext_resource type="Texture2D" uid="uid://bayoil4p2e02w" path="res://Assets/Assets - Background/rhythm_game_bg.png" id="1_u3e6l"]
 [ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
+[ext_resource type="Script" uid="uid://cl01jx3vvrdux" path="res://Scripts/rhythm/recipeData.gd" id="2_wi2s1"]
 [ext_resource type="Script" uid="uid://dyodgwig82klo" path="res://Scripts/rhythm/hitManager.gd" id="3_n64c0"]
 [ext_resource type="Script" uid="uid://bhvnhq4346ipo" path="res://Scenes/measureManager.gd" id="4_q274c"]
 [ext_resource type="Texture2D" uid="uid://4vx3jgn6lt35" path="res://Assets/Assets - Background/rhythm_game_bg_frame.png" id="7_5d0eo"]
@@ -22,6 +23,7 @@ position = Vector2(960, 540)
 texture = ExtResource("1_p34ow")
 
 [node name="center" type="Node2D" parent="."]
+script = ExtResource("2_wi2s1")
 
 [node name="rhythm interface" type="Node2D" parent="."]
 position = Vector2(124.745, 164)
@@ -48,11 +50,12 @@ script = ExtResource("4_q274c")
 [node name="beatManager" type="Node2D" parent="rhythm interface/timeline"]
 script = ExtResource("2_43wq1")
 
-[node name="hitManager" type="Node2D" parent="rhythm interface/timeline" node_paths=PackedStringArray("fb", "acc", "com")]
+[node name="hitManager" type="Node2D" parent="rhythm interface/timeline" node_paths=PackedStringArray("fb", "acc", "com", "dishDisplay")]
 script = ExtResource("3_n64c0")
 fb = NodePath("../../../feedback")
 acc = NodePath("../../../acc")
 com = NodePath("../../../ui/combo")
+dishDisplay = NodePath("../../../ui/recipe bg/dish")
 
 [node name="frame" type="Sprite2D" parent="rhythm interface"]
 position = Vector2(960, 540)
@@ -125,6 +128,8 @@ vertical_alignment = 1
 position = Vector2(1670, 403)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_p34ow")
+
+[node name="dish" type="Sprite2D" parent="ui/recipe bg"]
 
 [node name="recipe frame" type="Sprite2D" parent="ui/recipe bg"]
 texture = ExtResource("10_xftht")

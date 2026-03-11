@@ -3,6 +3,7 @@ extends Node2D
 # references to beatManager and fmodManager
 @onready var beatManager = get_node("../beatManager")
 @onready var fmodManager = get_node("..")
+@onready var recipeDataNode = get_node("../../../center")
 # in ms, represents how early you can begin hitting a note
 # (ex. how soon an input registers as a hit for the soonest note)
 # and how much time after it passes the bar until its considered a miss
@@ -17,16 +18,21 @@ var beatList
 @export var fb: RichTextLabel
 @export var acc: RichTextLabel
 @export var com: RichTextLabel
+@export var dishDisplay: Sprite2D
 var seen = 0.0
 var hit = 0.0
 var combo = 0
 var combos = []
 var holdStartPos
+var recipeData
+var currSong
 
 func _ready():
 	destroy = Callable(beatManager, "destroyBeat")
 	miss = Callable(beatManager, "missBeat")
 	beatList = beatManager.getBeatlist()
+	recipeData = recipeDataNode.getRecipeData()
+	currSong = fmodManager.getCurrSong()
 
 func _process(delta):
 	if beatList.size() > 0:
@@ -119,3 +125,6 @@ func score(offset):
 	combo = 0
 	combos.append(combo)
 	return "miss"
+
+func loadRecipeDisplay():
+	recipeData[currSong]["final"]

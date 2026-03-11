@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var measureManager = get_node("../measureManager")
+@onready var fmodManager = get_node("..")
 # distance between each measure bar in pixels
 var measureLength: int = 100
 # list of beats as parsed from beatmap text file
@@ -11,14 +12,14 @@ var dispList = [];
 # preload beat and hold scenes to instantiate later
 var beatScene = preload("res://scenes/beat.tscn")
 var holdScene = preload("res://scenes/hold.tscn")
-# can be swapped out to swap songs
-# probably should make this a reference to a global or some other manager later
-var currSong = "recipe 2"
-var currDiff = "hard"
+var currSong
+var currDiff
 var fullComboCount = 0
 
 # reads and parses beatmap text file into beatList
-func _init():
+func _ready():
+	currSong = fmodManager.getCurrSong()
+	currDiff = fmodManager.getCurrDiff()
 	var file = FileAccess.open("res://assets/assets - music/beatmaps/"+currSong+" "+currDiff+".txt", FileAccess.READ)
 	var content = file.get_as_text()
 	var tempList = content.split("\n")
@@ -31,8 +32,6 @@ func _init():
 			beatList[n].append(temp2[0])
 			beatList[n].append(temp2[1].to_int())
 			beatList[n].append(temp2[2].to_int())
-
-func _ready():
 	measureLength = measureManager.getMeasureLength()
 	parsePlaceBeats(beatList)
 
