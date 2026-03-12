@@ -78,17 +78,20 @@ func _process(delta):
 				if beatManager.getDispList().size() > 0:
 					var clip = beatManager.getDispList()[0].get_child(0)
 					var loc = beatManager.getDispList()[0].get_child(1)
-					var bar = clip.get_child(0).get_child(0)
-					clip.global_position.x = get_node("../../bar").global_position.x
-					bar.global_position.x = loc.global_position.x
-					if (holdStartPos > beatList[0][2]):
-						holdStartPos = beatList[0][2]
-					var passed = fmodManager.getEvent().position - holdStartPos
-					if (passed > (60000/(fmodManager.getBPM()*4))) && holdStartPos != beatList[0][2]:
-						combo += 1
-						holdStartPos += 60000/(fmodManager.getBPM()*4)
-						com.clear()
-						com.append_text(str(combo))
+					if (clip.get_child(0)):
+						var bar = clip.get_child(0).get_child(0)
+						clip.global_position.x = get_node("../../bar").global_position.x
+						bar.global_position.x = loc.global_position.x
+						if (holdStartPos > beatList[0][2]):
+							holdStartPos = beatList[0][2]
+						var passed = fmodManager.getEvent().position - holdStartPos
+						if (passed > (60000/(fmodManager.getBPM()*4))) && holdStartPos != beatList[0][2]:
+							combo += 1
+							holdStartPos += 60000/(fmodManager.getBPM()*4)
+							com.clear()
+							com.append_text(str(combo))
+					else:
+						hold = false
 				else:
 					hold = false
 		# if in a hold, check for released space bar and make changes accordingly
