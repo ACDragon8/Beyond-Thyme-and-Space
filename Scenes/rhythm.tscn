@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://hskxi08aetfm" path="res://Scripts/rhythm/beatManager.gd" id="2_43wq1"]
 [ext_resource type="Script" uid="uid://cl01jx3vvrdux" path="res://Scripts/rhythm/recipeData.gd" id="2_wi2s1"]
 [ext_resource type="Script" uid="uid://dyodgwig82klo" path="res://Scripts/rhythm/hitManager.gd" id="3_n64c0"]
-[ext_resource type="Script" uid="uid://bhvnhq4346ipo" path="res://Scenes/measureManager.gd" id="4_q274c"]
+[ext_resource type="Script" uid="uid://bhvnhq4346ipo" path="res://Scripts/rhythm/measureManager.gd" id="4_q274c"]
 [ext_resource type="Texture2D" uid="uid://4vx3jgn6lt35" path="res://Assets/Assets - Background/rhythm_game_bg_frame.png" id="7_5d0eo"]
 [ext_resource type="Texture2D" uid="uid://t4dmdfkhvq2u" path="res://Assets/Assets - Background/rhythm game cutting board.png" id="8_cqdyf"]
 [ext_resource type="Texture2D" uid="uid://dxkmykedc581s" path="res://Assets/Assets - UI/select-bg.png" id="9_p34ow"]

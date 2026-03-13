@@ -1,5 +1,7 @@
 extends Node
 
+var currSong: String
+var currDiff: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

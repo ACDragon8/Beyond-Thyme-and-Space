@@ -20,6 +20,10 @@ var startPos: Vector2;
 
 # sets startpos for scroll calculations
 func _init():
+	if (Global.currSong):
+		currSong = Global.currsong
+	if (Global.currDiff):
+		currDiff = Global.currDiff
 	startPos = self.position
 
 # initializes fmod event
