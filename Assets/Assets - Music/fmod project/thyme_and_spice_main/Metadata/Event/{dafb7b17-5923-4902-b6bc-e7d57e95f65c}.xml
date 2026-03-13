@@ -104,7 +104,6 @@
 			<destination>{6aaf6b8a-c5d6-4e39-ba83-10845e7bb8f8}</destination>
 			<destination>{f55bfbbe-0189-4614-abe6-fe08f1b6d70d}</destination>
 			<destination>{37cef860-0671-4110-942e-d449ab128d87}</destination>
-			<destination>{225698c6-1e26-4bc3-9227-cfb71c71884a}</destination>
 			<destination>{3bc4ae5d-d2a4-48d0-8ac9-1ffcdf07d732}</destination>
 			<destination>{c4e6430a-2a22-416f-91ab-ac0c5fd7e5af}</destination>
 			<destination>{d05a01bc-b715-40f8-bf1b-52029aa739b5}</destination>
@@ -125,7 +124,7 @@
 	</object>
 	<object class="SingleSound" id="{2aa7b488-7bf5-4551-88b3-0d9a58b6ae7a}">
 		<property name="start">
-			<value>2.1818124999999999</value>
+			<value>2.097</value>
 		</property>
 		<property name="length">
 			<value>19.352270833333332</value>
@@ -142,7 +141,7 @@
 	<object class="MixerBusPanner" id="{39aba90d-1ef8-45ce-b072-cf83598fdf9c}" />
 	<object class="TempoMarker" id="{0d3e8f5f-e3e3-41a2-ad6a-cec7bf6cca01}">
 		<property name="position">
-			<value>0.050000000000000003</value>
+			<value>0</value>
 		</property>
 		<property name="tempo">
 			<value>110</value>
@@ -593,21 +592,7 @@
 			<value>16.363645833333333</value>
 		</property>
 		<property name="name">
-			<value>8.3.1 hd</value>
-		</property>
-		<relationship name="timeline">
-			<destination>{6eab3fa3-503a-4e55-a9f8-7eceeec35dba}</destination>
-		</relationship>
-		<relationship name="markerTrack">
-			<destination>{08e919b6-40c5-4014-804e-b6c268e3eda3}</destination>
-		</relationship>
-	</object>
-	<object class="NamedMarker" id="{225698c6-1e26-4bc3-9227-cfb71c71884a}">
-		<property name="position">
-			<value>17.181812499999999</value>
-		</property>
-		<property name="name">
-			<value>8.4.3 hu</value>
+			<value>8.3.1 b</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{6eab3fa3-503a-4e55-a9f8-7eceeec35dba}</destination>
