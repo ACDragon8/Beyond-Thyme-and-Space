@@ -40,7 +40,7 @@ position = Vector2(960, 540)
 texture = ExtResource("1_u3e6l")
 
 [node name="bar" type="Sprite2D" parent="rhythm interface"]
-z_index = 100
+z_index = 50
 position = Vector2(150, 540)
 texture = ExtResource("1_rh6da")
 

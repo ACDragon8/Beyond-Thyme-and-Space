@@ -3,7 +3,7 @@ extends Node2D
 # length between measure bars in pixels
 var measureLength = 900
 var measure = 0
-var measureScene = preload("res://scenes/measure.tscn")
+var measureScene = preload("res://Scenes/measure.tscn")
 var pool = []
 var startPos
 

@@ -10,8 +10,8 @@ var beatList = [];
 # stores instantiated beats/holds in same order as beatList
 var dispList = [];
 # preload beat and hold scenes to instantiate later
-var beatScene = preload("res://scenes/beat.tscn")
-var holdScene = preload("res://scenes/hold.tscn")
+var beatScene = preload("res://Scenes/beat.tscn")
+var holdScene = preload("res://Scenes/hold.tscn")
 var currSong
 var currDiff
 var fullComboCount = 0
@@ -20,7 +20,7 @@ var fullComboCount = 0
 func _ready():
 	currSong = fmodManager.getCurrSong()
 	currDiff = fmodManager.getCurrDiff()
-	var file = FileAccess.open("res://assets/assets - music/beatmaps/"+currSong+" "+currDiff+".txt", FileAccess.READ)
+	var file = FileAccess.open("res://Assets/Assets - Music/beatmaps/"+currSong+" "+currDiff+".txt", FileAccess.READ)
 	var content = file.get_as_text()
 	var tempList = content.split("\n")
 	fullComboCount = int(tempList[tempList.size()-2])
