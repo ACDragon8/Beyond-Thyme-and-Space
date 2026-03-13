@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var measureManager = get_node("measureManager")
+@onready var hitManager = get_node("hitManager")
 # stores currently playing fmod event/song
 var event: FmodEvent = null
 # can be swapped out to swap songs
@@ -21,7 +22,7 @@ var startPos: Vector2;
 # sets startpos for scroll calculations
 func _init():
 	if (Global.currSong):
-		currSong = Global.currsong
+		currSong = Global.currSong
 	if (Global.currDiff):
 		currDiff = Global.currDiff
 	startPos = self.position
@@ -58,6 +59,9 @@ func scrollBy(dict: Dictionary, _type: int):
 			self.position = startPos - Vector2(measure*measureLength, 0)
 			measure += 1
 	else:
+		if dict.has("name"):
+			if dict["name"] == "end":
+				hitManager.sendScores()
 		print_debug(dict)
 
 # returns fmod event for other scripts to see

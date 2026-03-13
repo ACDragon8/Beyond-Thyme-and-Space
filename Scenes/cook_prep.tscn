@@ -148,6 +148,7 @@ texture_pressed = ExtResource("18_nlcsj")
 script = ExtResource("15_5wcrs")
 
 [node name="x" type="RichTextLabel" parent="ui/difficulty select/>"]
+layout_mode = 0
 offset_left = 300.002
 offset_top = -50.9612
 offset_right = 344.002
@@ -169,6 +170,7 @@ texture_pressed = ExtResource("18_nlcsj")
 script = ExtResource("16_b4nfe")
 
 [node name="x" type="RichTextLabel" parent="ui/difficulty select/<"]
+layout_mode = 0
 offset_left = 300.002
 offset_top = -50.9612
 offset_right = 344.002
@@ -344,6 +346,7 @@ script = ExtResource("19_sacgv")
 popup = NodePath("..")
 
 [node name="x" type="RichTextLabel" parent="popup/x"]
+layout_mode = 0
 offset_left = 300.002
 offset_top = -112.5
 offset_right = 344.002

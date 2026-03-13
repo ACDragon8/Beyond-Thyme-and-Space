@@ -37,15 +37,18 @@ var ingredients = {
 var recipeData = {
 	"recipe 1": {
 		"ingredients": [ingredients["rice"], ingredients["cabbage"], ingredients["chicken"]],
-		"final": "res://Assets/Assets - Recipe/TNS_cloudybento.png"
+		"final": "res://Assets/Assets - Recipe/TNS_cloudybento.png",
+		"name": "Cloudy Bento Box"
 	},
 	"recipe 2": {
 		"ingredients": [ingredients["bread"], ingredients["cabbage"], ingredients["egg"]],
-		"final": "res://Assets/Assets - Recipe/TNS_sandwich.png"
+		"final": "res://Assets/Assets - Recipe/TNS_sandwich.png",
+		"name": "Someone’s Sandwiches"
 	},
 	"recipe 3": {
 		"ingredients": [ingredients["rice"], ingredients["chicken"], ],
-		"final": "res://Assets/Assets - Recipe/TNS_curry.png"
+		"final": "res://Assets/Assets - Recipe/TNS_curry.png",
+		"name": "Curry Rice"
 	}
 }
 

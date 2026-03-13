@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq48ea8ab1xam"]
+[gd_scene load_steps=19 format=3 uid="uid://cq48ea8ab1xam"]
 
 [ext_resource type="Script" uid="uid://bylfo54l683kv" path="res://Scripts/rhythm/fmodManager.gd" id="1_gt65o"]
 [ext_resource type="Texture2D" uid="uid://dupp2ccwhrai3" path="res://Assets/Assets - Background/TNS_bg.png" id="1_p34ow"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://t4dmdfkhvq2u" path="res://Assets/Assets - Background/rhythm game cutting board.png" id="8_cqdyf"]
 [ext_resource type="Texture2D" uid="uid://dxkmykedc581s" path="res://Assets/Assets - UI/select-bg.png" id="9_p34ow"]
 [ext_resource type="Texture2D" uid="uid://boc47www224ec" path="res://Assets/Assets - UI/select-outline.png" id="10_xftht"]
+[ext_resource type="Texture2D" uid="uid://bjybgk3wmevuq" path="res://Assets/Assets - Background/screen fade.png" id="13_8y1fo"]
+[ext_resource type="Script" uid="uid://cmqh35lahbmt" path="res://Scripts/rhythm/scoring.gd" id="13_ytawu"]
+[ext_resource type="Texture2D" uid="uid://c8srlm6c5cbta" path="res://Assets/Assets - UI/panel_popup.png" id="14_krdcc"]
+[ext_resource type="Texture2D" uid="uid://b8ge33ga6hwow" path="res://Assets/Assets - UI/button_square default.png" id="15_j6txm"]
+[ext_resource type="Texture2D" uid="uid://ex0tvkv5uku" path="res://Assets/Assets - UI/button_square pressed.png" id="16_ytawu"]
+[ext_resource type="Script" uid="uid://c7lw608fmg8w0" path="res://Scripts/rhythm/exit.gd" id="18_ytawu"]
 
 [node name="Rhythm" type="Node2D"]
 
@@ -73,7 +79,7 @@ position = Vector2(960, 540)
 texture = ExtResource("8_cqdyf")
 
 [node name="ui" type="Node2D" parent="."]
-z_index = 4096
+z_index = 4000
 
 [node name="combo" type="RichTextLabel" parent="ui"]
 offset_left = 1543.0
@@ -130,3 +136,122 @@ horizontal_alignment = 1
 
 [node name="ingredient" type="Sprite2D" parent="ui"]
 position = Vector2(1542, 832)
+
+[node name="popup" type="Node2D" parent="." node_paths=PackedStringArray("recipedisp", "recipeName", "diffText", "gradeText", "comboText", "hitText", "accText", "monText")]
+visible = false
+z_index = 4096
+script = ExtResource("13_ytawu")
+recipedisp = NodePath("recipedisp")
+recipeName = NodePath("name")
+diffText = NodePath("diff")
+gradeText = NodePath("grade")
+comboText = NodePath("combo")
+hitText = NodePath("hits")
+accText = NodePath("acc")
+monText = NodePath("mon")
+
+[node name="ScreenFade" type="Sprite2D" parent="popup"]
+position = Vector2(960, 540)
+texture = ExtResource("13_8y1fo")
+
+[node name="popupbg" type="Sprite2D" parent="popup"]
+position = Vector2(960, 540)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_krdcc")
+
+[node name="recipedisp" type="Sprite2D" parent="popup"]
+position = Vector2(666, 540)
+
+[node name="textbg" type="Sprite2D" parent="popup"]
+position = Vector2(1186.5, 548)
+scale = Vector2(1.29833, 1)
+texture = ExtResource("9_p34ow")
+
+[node name="frame" type="Sprite2D" parent="popup/textbg"]
+texture = ExtResource("10_xftht")
+
+[node name="name" type="RichTextLabel" parent="popup"]
+offset_left = 960.0
+offset_top = 296.0
+offset_right = 1412.0
+offset_bottom = 388.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "recipe name"
+horizontal_alignment = 1
+
+[node name="diff" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 377.0
+offset_right = 1320.0
+offset_bottom = 434.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Difficulty: "
+
+[node name="grade" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 435.0
+offset_right = 1320.0
+offset_bottom = 492.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Grade: "
+
+[node name="combo" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 489.0
+offset_right = 1320.0
+offset_bottom = 546.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Highest Combo: "
+
+[node name="hits" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 546.0
+offset_right = 1320.0
+offset_bottom = 603.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Total Hit: "
+
+[node name="acc" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 605.0
+offset_right = 1320.0
+offset_bottom = 662.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Accuracy: "
+
+[node name="mon" type="RichTextLabel" parent="popup"]
+offset_left = 868.0
+offset_top = 664.0
+offset_right = 1320.0
+offset_bottom = 721.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Money Earned: "
+
+[node name="x" type="TextureButton" parent="popup"]
+offset_left = 1505.0
+offset_top = 232.0
+offset_right = 2505.0
+offset_bottom = 1232.0
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("15_j6txm")
+texture_pressed = ExtResource("16_ytawu")
+script = ExtResource("18_ytawu")
+
+[node name="x" type="RichTextLabel" parent="popup/x"]
+layout_mode = 0
+offset_left = 300.002
+offset_top = -112.5
+offset_right = 344.002
+offset_bottom = -22.4998
+scale = Vector2(12.22, 12.22)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "x"

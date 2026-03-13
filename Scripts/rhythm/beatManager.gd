@@ -97,3 +97,6 @@ func missBeat():
 		var type = curr[0].right(2)
 		if type == "hu":
 			dispList.pop_front().queue_free()
+
+func getMaxCombo():
+	return fullComboCount

@@ -4,6 +4,7 @@ extends Node2D
 @onready var beatManager = get_node("../beatManager")
 @onready var fmodManager = get_node("..")
 @onready var recipeDataNode = get_node("../../../center")
+@onready var popup = get_node("../../../popup")
 # in ms, represents how early you can begin hitting a note
 # (ex. how soon an input registers as a hit for the soonest note)
 # and how much time after it passes the bar until its considered a miss
@@ -25,6 +26,7 @@ var combo = 0
 var combos = []
 var holdStartPos
 var recipeData
+var recipeImage
 var currSong
 var currIng = [0, 0]
 var rotated = false
@@ -35,6 +37,7 @@ func _ready():
 	beatList = beatManager.getBeatlist()
 	recipeData = recipeDataNode.getRecipeData()
 	currSong = fmodManager.getCurrSong()
+	recipeImage = load(recipeData[currSong]["final"])
 	loadRecipeDisplay()
 	loadFromString(recipeData[currSong]["ingredients"][0][0])
 
@@ -72,7 +75,7 @@ func _process(delta):
 				if beatList.size() > 0:
 					loadFromString(getNextIng())
 				else:
-					loadFromStringU(recipeData[currSong]["final"])
+					loadRecipeU()
 		if Input.is_action_pressed("hit"):
 			if hold == true:
 				if beatManager.getDispList().size() > 0:
@@ -107,13 +110,13 @@ func _process(delta):
 				com.clear()
 				var offset = curr[2] - fmodManager.getEvent().position
 				var score = score(offset)
-				fb.append_text(score(offset))
+				fb.append_text(score)
 				com.append_text(str(combo))
 				if score != "miss":
 					if beatList.size() > 0:
 						loadFromString(getNextIng())
 					else:
-						loadFromStringU(recipeData[currSong]["final"])
+						loadRecipeU()
 
 func score(offset):
 	if absi(offset) <= 50:
@@ -141,8 +144,7 @@ func score(offset):
 	return "miss"
 
 func loadRecipeDisplay():
-	var img = load(recipeData[currSong]["final"])
-	var tex = ImageTexture.create_from_image(img.get_image())
+	var tex = ImageTexture.create_from_image(recipeImage.get_image())
 	var texSize = tex.get_size()
 	tex.set_size_override(Vector2(600, texSize.y*(600/texSize.x)))
 	dishDisplay.texture = tex
@@ -157,9 +159,8 @@ func loadFromString(file):
 		tex.set_size_override(Vector2(texSize.x*(400/texSize.y), 400))
 	ingredientDisplay.texture = tex
 
-func loadFromStringU(file):
-	var img = load(file)
-	var tex = ImageTexture.create_from_image(img.get_image())
+func loadRecipeU():
+	var tex = ImageTexture.create_from_image(recipeImage.get_image())
 	var texSize = tex.get_size()
 	tex.set_size_override(Vector2(700, texSize.y*(700/texSize.x)))
 	ingredientDisplay.texture = tex
@@ -172,3 +173,8 @@ func getNextIng():
 	if currIng[0] >= recipeData[currSong]["ingredients"].size():
 		currIng[0] = 0
 	return recipeData[currSong]["ingredients"][currIng[0]][currIng[1]]
+
+func sendScores():
+	combos.append(combo)
+	popup.setScores(seen,hit,combos,beatManager.getMaxCombo())
+	popup.show()
