@@ -9,7 +9,7 @@ func _ready():
 	if Global.currDiff:
 		currDiff = Global.currDiff
 	diffText.clear()
-	diffText.append_text(diffList[curr])
+	diffText.append_text(currDiff)
 
 func incDiff():
 	if curr < 2:
