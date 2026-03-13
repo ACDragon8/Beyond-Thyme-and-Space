@@ -1,3 +1,355 @@
-[gd_scene format=3 uid="uid://lx3iieqtvvkj"]
+[gd_scene load_steps=24 format=3 uid="uid://lx3iieqtvvkj"]
+
+[ext_resource type="Texture2D" uid="uid://dupp2ccwhrai3" path="res://Assets/Assets - Background/TNS_bg.png" id="1_24iis"]
+[ext_resource type="Script" uid="uid://cl01jx3vvrdux" path="res://Scripts/rhythm/recipeData.gd" id="1_rv0fk"]
+[ext_resource type="Texture2D" uid="uid://dhbv8tod4fo8m" path="res://Assets/Assets - UI/panel_main.png" id="2_fjeky"]
+[ext_resource type="Texture2D" uid="uid://duke1hou4qcn3" path="res://Assets/Assets - UI/button_long default.png" id="3_lf2j3"]
+[ext_resource type="Texture2D" uid="uid://usvj145tapyr" path="res://Assets/Assets - UI/section header.png" id="4_nlcsj"]
+[ext_resource type="Texture2D" uid="uid://b0f8q2gf0saqq" path="res://Assets/Assets - UI/button_long pressed.png" id="4_w4pws"]
+[ext_resource type="Script" uid="uid://uurbmoihstno" path="res://Scripts/cook menu/to_cook.gd" id="5_w4pws"]
+[ext_resource type="Texture2D" uid="uid://dxkmykedc581s" path="res://Assets/Assets - UI/select-bg.png" id="6_2rik8"]
+[ext_resource type="Texture2D" uid="uid://chxe8tl03mupd" path="res://Assets/Assets - UI/frame press.png" id="7_8clll"]
+[ext_resource type="Texture2D" uid="uid://boc47www224ec" path="res://Assets/Assets - UI/select-outline.png" id="7_arjdi"]
+[ext_resource type="Script" uid="uid://15wkjl0xsapa" path="res://Scripts/cook menu/recipe_select.gd" id="7_cjhxw"]
+[ext_resource type="Texture2D" uid="uid://bjybgk3wmevuq" path="res://Assets/Assets - Background/screen fade.png" id="10_fdlqw"]
+[ext_resource type="Texture2D" uid="uid://c8srlm6c5cbta" path="res://Assets/Assets - UI/panel_popup.png" id="11_x2fuo"]
+[ext_resource type="Script" uid="uid://dfvkl3smlqoj2" path="res://Scripts/cook menu/difficulty_select.gd" id="12_sacgv"]
+[ext_resource type="Texture2D" uid="uid://boefwc2sqkj2j" path="res://Assets/Assets - Recipe/TNS_cloudybento.png" id="12_vv4yt"]
+[ext_resource type="Script" uid="uid://dat6mem2hr2f4" path="res://Scripts/cook menu/recipe_selector.gd" id="12_x2fuo"]
+[ext_resource type="Texture2D" uid="uid://cfc12581iik1d" path="res://Assets/Assets - Recipe/TNS_sandwich.png" id="14_j8el3"]
+[ext_resource type="Script" uid="uid://5s8b0qni4kh1" path="res://Scripts/cook menu/inc.gd" id="15_5wcrs"]
+[ext_resource type="Texture2D" uid="uid://dhq24iql2mf55" path="res://Assets/Assets - Recipe/TNS_curry.png" id="15_rv0fk"]
+[ext_resource type="Script" uid="uid://cu5f223hxme8y" path="res://Scripts/cook menu/dec.gd" id="16_b4nfe"]
+[ext_resource type="Texture2D" uid="uid://b8ge33ga6hwow" path="res://Assets/Assets - UI/button_square default.png" id="17_o2me6"]
+[ext_resource type="Texture2D" uid="uid://ex0tvkv5uku" path="res://Assets/Assets - UI/button_square pressed.png" id="18_nlcsj"]
+[ext_resource type="Script" uid="uid://6u0s7ccq0rh3" path="res://Scripts/cook menu/x.gd" id="19_sacgv"]
 
 [node name="CookPrep" type="Node2D"]
+
+[node name="center" type="Node" parent="."]
+script = ExtResource("1_rv0fk")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_24iis")
+
+[node name="panel" type="Sprite2D" parent="bg"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_fjeky")
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="header" type="Sprite2D" parent="ui"]
+position = Vector2(461, 123)
+scale = Vector2(0.576, 0.6835)
+texture = ExtResource("4_nlcsj")
+
+[node name="header text" type="RichTextLabel" parent="ui/header"]
+offset_left = -413.194
+offset_top = -103.877
+offset_right = 18.8055
+offset_bottom = 13.1229
+scale = Vector2(1.875, 1.635)
+theme_override_font_sizes/normal_font_size = 80
+text = "Recipe"
+horizontal_alignment = 1
+
+[node name="recipe" type="RichTextLabel" parent="ui"]
+offset_left = 381.0
+offset_top = 243.0
+offset_right = 664.0
+offset_bottom = 390.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Select
+Recipe"
+horizontal_alignment = 1
+
+[node name="to cook" type="TextureButton" parent="ui"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1263.0
+offset_top = 791.0
+offset_right = 1768.0
+offset_bottom = 1158.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_lf2j3")
+texture_pressed = ExtResource("4_w4pws")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_w4pws")
+
+[node name="buttonlabel" type="RichTextLabel" parent="ui/to cook"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 57.0
+offset_top = 138.0
+offset_right = 461.0
+offset_bottom = 223.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "start cooking!"
+
+[node name="recipe select" type="Sprite2D" parent="ui"]
+position = Vector2(533, 604)
+scale = Vector2(0.6925, 0.6925)
+texture = ExtResource("6_2rik8")
+
+[node name="recipe icon" type="Sprite2D" parent="ui/recipe select"]
+
+[node name="recipe select" type="TextureButton" parent="ui/recipe select" node_paths=PackedStringArray("dishDisplay", "popup", "recipes")]
+offset_left = -296.0
+offset_top = -299.0
+offset_right = 297.0
+offset_bottom = 299.0
+texture_pressed = ExtResource("7_8clll")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_cjhxw")
+dishDisplay = NodePath("../recipe icon")
+popup = NodePath("../../../popup")
+recipes = NodePath("../../../popup/recipes")
+
+[node name="select outline" type="Sprite2D" parent="ui/recipe select"]
+texture = ExtResource("7_arjdi")
+
+[node name="difficulty select" type="Node2D" parent="ui" node_paths=PackedStringArray("diffText")]
+position = Vector2(51, 0)
+script = ExtResource("12_sacgv")
+diffText = NodePath("display/header text")
+
+[node name="display" type="Sprite2D" parent="ui/difficulty select"]
+position = Vector2(1243, 553)
+scale = Vector2(0.576, 0.6835)
+texture = ExtResource("4_nlcsj")
+
+[node name="header text" type="RichTextLabel" parent="ui/difficulty select/display"]
+offset_left = -413.194
+offset_top = -100.951
+offset_right = 18.8055
+offset_bottom = 16.0489
+scale = Vector2(1.875, 1.635)
+theme_override_font_sizes/normal_font_size = 80
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name=">" type="TextureButton" parent="ui/difficulty select"]
+offset_left = 1537.0
+offset_top = 485.0
+offset_right = 2537.0
+offset_bottom = 1485.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("17_o2me6")
+texture_pressed = ExtResource("18_nlcsj")
+script = ExtResource("15_5wcrs")
+
+[node name="x" type="RichTextLabel" parent="ui/difficulty select/>"]
+offset_left = 300.002
+offset_top = -50.9612
+offset_right = 344.002
+offset_bottom = 39.0388
+scale = Vector2(12.22, 12.22)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = ">"
+
+[node name="<" type="TextureButton" parent="ui/difficulty select"]
+offset_left = 819.0
+offset_top = 485.0
+offset_right = 1819.0
+offset_bottom = 1485.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("17_o2me6")
+texture_pressed = ExtResource("18_nlcsj")
+script = ExtResource("16_b4nfe")
+
+[node name="x" type="RichTextLabel" parent="ui/difficulty select/<"]
+offset_left = 300.002
+offset_top = -50.9612
+offset_right = 344.002
+offset_bottom = 39.0388
+scale = Vector2(12.22, 12.22)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "<"
+
+[node name="popup" type="Node2D" parent="."]
+visible = false
+
+[node name="ScreenFade" type="Sprite2D" parent="popup"]
+position = Vector2(960, 540)
+texture = ExtResource("10_fdlqw")
+
+[node name="popupbg" type="Sprite2D" parent="popup"]
+position = Vector2(960, 540)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_x2fuo")
+
+[node name="recipes" type="Node2D" parent="popup"]
+
+[node name="recipe 1" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(511, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_2rik8")
+
+[node name="display" type="Sprite2D" parent="popup/recipes/recipe 1"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("12_vv4yt")
+
+[node name="recipe 1" type="TextureButton" parent="popup/recipes/recipe 1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Cloudy Bento Box
+A bento box stuffed with teriyaki chicken, 
+shrimp, and red cabbage, all on a bed of 
+fluffy white rice. It’s like they’re resting on
+clouds."
+texture_pressed = ExtResource("7_8clll")
+script = ExtResource("12_x2fuo")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/recipe 1"]
+texture = ExtResource("7_arjdi")
+
+[node name="recipe 2" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(795, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_2rik8")
+
+[node name="display" type="Sprite2D" parent="popup/recipes/recipe 2"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("14_j8el3")
+
+[node name="recipe 2" type="TextureButton" parent="popup/recipes/recipe 2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Someone's Sandwiches
+Toasted and seasoned bread holds together
+fluffy eggs, a variety of vegetables, and a 
+special sauce. Sandwiches like these are best
+served pre-sliced.
+"
+texture_pressed = ExtResource("7_8clll")
+script = ExtResource("12_x2fuo")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/recipe 2"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="recipe 3" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(1079, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_2rik8")
+
+[node name="display" type="Sprite2D" parent="popup/recipes/recipe 3"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("15_rv0fk")
+
+[node name="recipe 3" type="TextureButton" parent="popup/recipes/recipe 3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Curry Rice
+A simple curry. White rice and chicken are
+served with a mild, stew-like curry sauce,
+made with a mix of sweet, savory, and
+earthy spices.
+"
+texture_pressed = ExtResource("7_8clll")
+script = ExtResource("12_x2fuo")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/recipe 3"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="select5" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(1363, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8clll")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/select5"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="select2" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(511, 692)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8clll")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/select2"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="select6" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(795, 692)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8clll")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/select6"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="select7" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(1079, 692)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8clll")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/select7"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="select8" type="Sprite2D" parent="popup/recipes"]
+position = Vector2(1363, 692)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8clll")
+
+[node name="frame" type="Sprite2D" parent="popup/recipes/select8"]
+visible = false
+texture = ExtResource("7_arjdi")
+
+[node name="x" type="TextureButton" parent="popup" node_paths=PackedStringArray("popup")]
+offset_left = 1505.0
+offset_top = 232.0
+offset_right = 2505.0
+offset_bottom = 1232.0
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("17_o2me6")
+texture_pressed = ExtResource("18_nlcsj")
+script = ExtResource("19_sacgv")
+popup = NodePath("..")
+
+[node name="x" type="RichTextLabel" parent="popup/x"]
+offset_left = 300.002
+offset_top = -112.5
+offset_right = 344.002
+offset_bottom = -22.4998
+scale = Vector2(12.22, 12.22)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "x"

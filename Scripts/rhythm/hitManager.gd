@@ -141,15 +141,15 @@ func score(offset):
 	return "miss"
 
 func loadRecipeDisplay():
-	var img = Image.load_from_file(recipeData[currSong]["final"])
-	var tex = ImageTexture.create_from_image(img)
+	var img = load(recipeData[currSong]["final"])
+	var tex = ImageTexture.create_from_image(img.get_image())
 	var texSize = tex.get_size()
 	tex.set_size_override(Vector2(600, texSize.y*(600/texSize.x)))
 	dishDisplay.texture = tex
 
 func loadFromString(file):
-	var img = Image.load_from_file(file)
-	var tex = ImageTexture.create_from_image(img)
+	var img = load(file)
+	var tex = ImageTexture.create_from_image(img.get_image())
 	var texSize = tex.get_size()
 	if (texSize.x >= texSize.y):
 		tex.set_size_override(Vector2(400, texSize.y*(400/texSize.x)))
@@ -158,8 +158,8 @@ func loadFromString(file):
 	ingredientDisplay.texture = tex
 
 func loadFromStringU(file):
-	var img = Image.load_from_file(file)
-	var tex = ImageTexture.create_from_image(img)
+	var img = load(file)
+	var tex = ImageTexture.create_from_image(img.get_image())
 	var texSize = tex.get_size()
 	tex.set_size_override(Vector2(700, texSize.y*(700/texSize.x)))
 	ingredientDisplay.texture = tex

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbv8tod4fo8m"
-path="res://.godot/imported/panel_main.png-28d02784bbbcb15aeb5c4ffc04e1c64b.ctex"
+uid="uid://bjybgk3wmevuq"
+path="res://.godot/imported/screen fade.png-1f3c52c167c00155ed74c85e3f2cf1ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assets - UI/panel_main.png"
-dest_files=["res://.godot/imported/panel_main.png-28d02784bbbcb15aeb5c4ffc04e1c64b.ctex"]
+source_file="res://Assets/Assets - Background/screen fade.png"
+dest_files=["res://.godot/imported/screen fade.png-1f3c52c167c00155ed74c85e3f2cf1ab.ctex"]
 
 [params]
 
