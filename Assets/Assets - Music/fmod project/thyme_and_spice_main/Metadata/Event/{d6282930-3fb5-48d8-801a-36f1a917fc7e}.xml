@@ -181,7 +181,7 @@
 	<object class="MixerBusPanner" id="{4800c47e-0fa9-4606-89ea-5edc85176326}" />
 	<object class="TempoMarker" id="{62557e9f-6e11-48d2-a41d-5eaf083adf7b}">
 		<property name="position">
-			<value>0</value>
+			<value>0.10000000000000001</value>
 		</property>
 		<property name="tempo">
 			<value>110</value>
