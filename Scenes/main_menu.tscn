@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0baqcue62rub"]
+[gd_scene load_steps=10 format=3 uid="uid://d0baqcue62rub"]
 
 [ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/Assets - UI/TNS_bg.png" id="1_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://cimo7n2t4scc3" path="res://Assets/Assets - UI/main_menu_bg_panel.png" id="2_yhxw7"]
 [ext_resource type="Script" uid="uid://bkpihc35msiet" path="res://Scripts/collect_ingredients_btn.gd" id="3_n45e2"]
 [ext_resource type="Texture2D" uid="uid://d3bq5bfje5ltk" path="res://Assets/Assets - UI/main_menu_nav_select_button.png" id="3_opfnp"]
 [ext_resource type="Script" uid="uid://brcxlh3swbaky" path="res://Scripts/cook_item_btn.gd" id="5_n45e2"]
-[ext_resource type="Texture2D" uid="uid://k0cjqhawpv3v" path="res://Assets/section header.png" id="7_trj04"]
+[ext_resource type="Texture2D" uid="uid://dsams0kqiqkrs" path="res://Assets/Assets - UI/button_square default.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://k0cjqhawpv3v" path="res://Assets/Assets - UI/section header.png" id="7_trj04"]
+[ext_resource type="Texture2D" uid="uid://dicfaqrerj1fe" path="res://Assets/Assets - UI/button_square pressed.png" id="8_vr1f0"]
+[ext_resource type="Script" uid="uid://cqyr63rqtgvne" path="res://Scenes/main_menu_to_title_screen_btn.gd" id="9_t1dhk"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -69,5 +72,21 @@ text = "Kitchen Tasks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SectionHeader" type="Sprite2D" parent="."]
+position = Vector2(1636, 162)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_trj04")
+
+[node name="MainMenuToTitleScreenBtn" type="TextureButton" parent="."]
+offset_left = 1625.0
+offset_top = 797.0
+offset_right = 2625.0
+offset_bottom = 1797.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_16hvj")
+texture_pressed = ExtResource("8_vr1f0")
+script = ExtResource("9_t1dhk")
+
 [connection signal="pressed" from="CollectIngredientsBtn" to="CollectIngredientsBtn" method="_on_pressed"]
 [connection signal="pressed" from="CookItemBtn" to="CookItemBtn" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuToTitleScreenBtn" to="MainMenuToTitleScreenBtn" method="_on_pressed"]
