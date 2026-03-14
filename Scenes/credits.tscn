@@ -41,4 +41,15 @@ texture_pressed = ExtResource("4_xelri")
 texture_click_mask = ExtResource("5_uah1q")
 script = ExtResource("5_xelri")
 
+[node name="Label" type="Label" parent="BackToTitleButton"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 60.0
+offset_right = 59.0
+offset_bottom = 147.0
+scale = Vector2(10, 10)
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="BackToTitleButton" to="BackToTitleButton" method="_on_pressed"]
