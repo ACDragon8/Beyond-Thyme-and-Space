@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://tu5gkqku6pmo"]
+[gd_scene load_steps=6 format=3 uid="uid://tu5gkqku6pmo"]
 
-[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/TNS_bg.png" id="1_gryuy"]
+[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/Assets - UI/TNS_bg.png" id="1_gryuy"]
 [ext_resource type="Script" uid="uid://b5svhswyyia65" path="res://Scripts/credits_text.gd" id="2_gryuy"]
+[ext_resource type="Texture2D" uid="uid://cj54r6gcdybbn" path="res://Assets/Assets - UI/button_long default.png" id="3_1bamb"]
+[ext_resource type="Texture2D" uid="uid://bwuidcmdo55a6" path="res://Assets/Assets - UI/button_long pressed.png" id="4_xelri"]
+[ext_resource type="Script" uid="uid://dfucoscq3wpev" path="res://Scripts/back_to_title_button.gd" id="5_xelri"]
 
 [node name="Credits" type="Node2D"]
 
@@ -30,3 +33,15 @@ Writers: Akira Shemansky
 Sound Designer: Elijah Cruz (music)"
 horizontal_alignment = 1
 script = ExtResource("2_gryuy")
+
+[node name="BackToTitleButton" type="TextureButton" parent="."]
+offset_left = 710.0
+offset_top = 600.0
+offset_right = 1710.0
+offset_bottom = 1600.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_1bamb")
+texture_pressed = ExtResource("4_xelri")
+script = ExtResource("5_xelri")
+
+[connection signal="pressed" from="BackToTitleButton" to="BackToTitleButton" method="_on_pressed"]

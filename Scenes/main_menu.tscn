@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0baqcue62rub"]
 
-[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/TNS_bg.png" id="1_cp0ys"]
-[ext_resource type="Texture2D" uid="uid://cimo7n2t4scc3" path="res://Assets/main_menu_bg_panel.png" id="2_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://hugu1b8ylk18" path="res://Assets/Assets - UI/TNS_bg.png" id="1_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://cimo7n2t4scc3" path="res://Assets/Assets - UI/main_menu_bg_panel.png" id="2_yhxw7"]
 [ext_resource type="Script" uid="uid://bkpihc35msiet" path="res://Scripts/collect_ingredients_btn.gd" id="3_n45e2"]
-[ext_resource type="Texture2D" uid="uid://d3bq5bfje5ltk" path="res://Assets/main_menu_nav_select_button.png" id="3_opfnp"]
+[ext_resource type="Texture2D" uid="uid://d3bq5bfje5ltk" path="res://Assets/Assets - UI/main_menu_nav_select_button.png" id="3_opfnp"]
 [ext_resource type="Script" uid="uid://brcxlh3swbaky" path="res://Scripts/cook_item_btn.gd" id="5_n45e2"]
 [ext_resource type="Texture2D" uid="uid://k0cjqhawpv3v" path="res://Assets/section header.png" id="7_trj04"]
 

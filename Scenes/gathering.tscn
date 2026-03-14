@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw604xggq3fwy"]
+[gd_scene load_steps=7 format=3 uid="uid://dw604xggq3fwy"]
 
 [ext_resource type="Script" uid="uid://dhjy2y0kps2bw" path="res://Scripts/results.gd" id="1_tin2j"]
-[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_ud23g"]
+[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/Assets - UI/cutting_board.png" id="1_ud23g"]
 [ext_resource type="Script" uid="uid://d0ol1d7ou77rb" path="res://Scripts/collect.gd" id="3_eji51"]
 [ext_resource type="Script" uid="uid://bovki547xd8gv" path="res://Scripts/quantity_display.gd" id="4_m2mup"]
+[ext_resource type="Script" uid="uid://bb3400dl4v12x" path="res://Scripts/gathering_back_btn.gd" id="5_eji51"]
 
 [sub_resource type="Theme" id="Theme_mabgl"]
 default_font_size = 31
@@ -79,8 +80,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_m2mup")
 
+[node name="Back" type="Button" parent="."]
+offset_left = 1577.0
+offset_top = 917.0
+offset_right = 1828.0
+offset_bottom = 990.0
+text = "Back"
+script = ExtResource("5_eji51")
+
 [connection signal="AddIngredient" from="." to="." method="_on_add_ingredient"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Collect" to="." method="_on_collect_pressed"]
 [connection signal="pressed" from="Minus" to="Quantity Display" method="minus_quantity"]
 [connection signal="pressed" from="Plus" to="Quantity Display" method="add_quantity"]
+[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]

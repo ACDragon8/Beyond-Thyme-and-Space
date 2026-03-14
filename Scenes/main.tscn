@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://db16vxma3c8y4"]
 
 [ext_resource type="PackedScene" uid="uid://bv43xyjlmb7vo" path="res://Prefabs/target.tscn" id="1_8gbba"]
-[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/cutting_board.png" id="1_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dgl800847aanq" path="res://Assets/Assets - UI/cutting_board.png" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://djfgx3sjr0a1y" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://buh4pxfco3nvc" path="res://Prefabs/player.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://b26yg4k826shb" path="res://Scripts/player.gd" id="3_kry3j"]

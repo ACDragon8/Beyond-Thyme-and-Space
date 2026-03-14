@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwuidcmdo55a6"
-path="res://.godot/imported/button_long pressed.png-0ffe73b153b9b37d9b8b48b224181d98.ctex"
+uid="uid://dgl800847aanq"
+path="res://.godot/imported/cutting_board.png-ed879419ab6f8d8fb9130a47ce040c4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/button_long pressed.png"
-dest_files=["res://.godot/imported/button_long pressed.png-0ffe73b153b9b37d9b8b48b224181d98.ctex"]
+source_file="res://Assets/Assets - UI/cutting_board.png"
+dest_files=["res://.godot/imported/cutting_board.png-ed879419ab6f8d8fb9130a47ce040c4f.ctex"]
 
 [params]
 

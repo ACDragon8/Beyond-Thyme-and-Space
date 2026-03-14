@@ -2,4 +2,4 @@ extends TextureButton
 
 
 func _on_pressed() -> void:
-	pass # TODO: Go to ingredient collection screen
+	get_tree().change_scene_to_file("res://Scenes/gathering.tscn")

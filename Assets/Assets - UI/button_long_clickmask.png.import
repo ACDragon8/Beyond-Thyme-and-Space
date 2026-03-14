@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://q83vgxjjqyt4"
+path="res://.godot/imported/button_long_clickmask.png-f03b0b269852e0065f340678ffb31794.res"
+
+[deps]
+
+source_file="res://Assets/Assets - UI/button_long_clickmask.png"
+dest_files=["res://.godot/imported/button_long_clickmask.png-f03b0b269852e0065f340678ffb31794.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
